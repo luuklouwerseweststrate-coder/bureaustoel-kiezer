@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BureaustoelKiezen.nl – Vind de juiste stoel</title>
+  <meta name="description" content="Objectieve keuzehulp voor bureaustoelen. Filter op budget, lengte, rugklachten, mechaniek en meer. Vergelijk modellen en vraag advies." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --brand: #6A1B9A; /* Weststrate paars */
+      --brand-light: #F4F0F9;
+      --brand-dark: #4D126E;
+      --accent: #00A9E0; /* Weststrate blauw accent */
+      --bg: #F8FAFC;
+      --card: #FFFFFF;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      margin: 0;
+      padding: 0;
+    }
+    .custom-shadow { box-shadow: 0 10px 25px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); }
+    .product-img-placeholder {
+      background-color: #E2E8F0;
+      color: #94A3B8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+    }
+    .compare-bar-btn {
+        @apply p-2 rounded-full w-8 h-8 flex items-center justify-center transition-all duration-200;
+    }
+    .compare-bar-btn:hover {
+        @apply scale-110;
+    }
+    .compare-bar-btn.remove {
+        @apply bg-red-500 hover:bg-red-600 text-white;
+    }
+    .compare-bar-btn.add {
+        @apply bg-brand hover:bg-brand-dark text-white;
+    }
+    .text-brand { color: var(--brand); }
+    .bg-brand { background-color: var(--brand); }
+    .bg-brand-light { background-color: var(--brand-light); }
+    .hover\:bg-brand-dark:hover { background-color: var(--brand-dark); }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- Header -->
+  <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-200">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-2 sm:space-x-3">
+        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-brand to-brand-light"></div>
+        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">BureaustoelKiezen.nl</h1>
+      </div>
+      <nav class="hidden md:flex space-x-6 lg:space-x-8">
+        <a href="#/home" class="text-sm font-semibold text-gray-700 hover:text-brand transition-colors duration-200" data-route-link>Home</a>
+        <a href="#" class="text-sm font-semibold text-gray-700 hover:text-brand transition-colors duration-200" data-route-link>Keuzehulp</a>
+        <a href="#/vergelijker" class="text-sm font-semibold text-gray-700 hover:text-brand transition-colors duration-200" data-route-link>Vergelijker</a>
+        <a href="#/ergonomie" class="text-sm font-semibold text-gray-700 hover:text-brand opacity-60 cursor-not-allowed transition-colors duration-200" data-route-link>Ergonomie</a>
+        <a href="#/contact" class="text-sm font-semibold text-gray-700 hover:text-brand transition-colors duration-200" data-route-link>Contact</a>
+      </nav>
+      <button class="bg-brand text-white font-semibold py-2 px-5 rounded-full hover:bg-brand-dark transition-colors duration-200 hidden md:block" type="button" onclick="openKeuzehulp()">Start keuzehulp</button>
+      <button class="md:hidden text-gray-700 text-2xl" onclick="toggleMobileMenu()">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main id="app">
+    <!-- ROUTE: HOME -->
+    <section data-route="home">
+      <div class="relative bg-white pt-16 pb-24 shadow-sm border-b border-gray-200">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-4 text-center md:text-left">Vind de bureaustoel die bij je past</h2>
+          <p class="text-lg sm:text-xl text-gray-600 mb-8 text-center md:text-left max-w-2xl mx-auto md:mx-0">Objectieve keuzehulp voor bureaustoelen. Filter op budget, lengte, rugklachten, mechaniek en meer. Vergelijk modellen en vraag advies.</p>
+          <div class="flex justify-center md:justify-start">
+            <button class="bg-brand text-white font-semibold py-3 px-8 rounded-full text-lg hover:bg-brand-dark transition-colors duration-200" type="button" onclick="openKeuzehulp()">Start met kiezen</button>
+          </div>
+        </div>
+      </div>
+      <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <h3 class="text-2xl font-bold mb-6">Alle bureaustoelen</h3>
+        <div id="homeResults" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+      </section>
+    </section>
+
+    <!-- ROUTE: VERGELIJKER -->
+    <section data-route="vergelijker" hidden>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div class="bg-white rounded-2xl custom-shadow p-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <h3 class="text-2xl font-bold text-gray-900">Vergelijk geselecteerde modellen</h3>
+            <button class="bg-gray-100 text-gray-700 font-semibold py-2 px-4 rounded-full hover:bg-gray-200 transition-colors duration-200" id="compareClear">Verwijder alles</button>
+          </div>
+          <div class="overflow-x-auto">
+            <table id="compareTable" class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50"></thead>
+              <tbody class="bg-white divide-y divide-gray-200"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROUTE: ERGONOMIE -->
+    <section data-route="ergonomie" hidden>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div class="bg-white rounded-2xl custom-shadow p-6">
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Ergonomie in het kort</h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-700">
+            <li><strong>Zithoogte:</strong> knieën ~90°, voeten plat op de grond.</li>
+            <li><strong>Rugleuning:</strong> actieve onderrugsupport (lendensteun).</li>
+            <li><strong>Beweging:</strong> wissel zitten, staan en lopen af.</li>
+          </ul>
+          <p class="mt-4 text-sm text-gray-500">Vermeld certificeringen alleen indien aantoonbaar (bijv. NEN‑EN 1335, NPR 1813).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROUTE: CONTACT -->
+    <section data-route="contact" hidden>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div class="bg-white rounded-2xl custom-shadow p-6 max-w-3xl mx-auto">
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">Contact</h3>
+          <p class="text-gray-500 mb-6">Heb je een vraag of wil je persoonlijk advies? Vul het formulier in.</p>
+          <form onsubmit="event.preventDefault(); showMockMessage();" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="col-span-1"><label class="text-sm font-medium text-gray-700">Naam<br><input type="text" required class="mt-1 block w-full rounded-xl border-gray-300 shadow-sm focus:border-brand focus:ring-brand"></label></div>
+            <div class="col-span-1"><label class="text-sm font-medium text-gray-700">E-mail<br><input type="email" required class="mt-1 block w-full rounded-xl border-gray-300 shadow-sm focus:border-brand focus:ring-brand"></label></div>
+            <div class="col-span-full"><label class="text-sm font-medium text-gray-700">Bericht<br><textarea required rows="5" class="mt-1 block w-full rounded-xl border-gray-300 shadow-sm focus:border-brand focus:ring-brand"></textarea></label></div>
+            <div class="col-span-full flex justify-end space-x-3">
+              <button type="button" class="bg-gray-100 text-gray-700 font-semibold py-2 px-5 rounded-full hover:bg-gray-200 transition-colors duration-200">Annuleer</button>
+              <button type="submit" class="bg-brand text-white font-semibold py-2 px-5 rounded-full hover:bg-brand-dark transition-colors duration-200">Verstuur</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIMPLE 404 & MOCK PAGES -->
+    <section data-route="notfound" hidden>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div class="bg-white rounded-2xl custom-shadow p-6 max-w-xl mx-auto text-center">
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">Pagina niet gevonden</h3>
+          <p class="text-gray-500">De opgevraagde pagina bestaat niet. Ga terug naar <a href="#/home" class="text-brand hover:underline">Home</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-300 py-10 md:py-16 mt-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+        <div>
+          <div class="flex items-center space-x-2 mb-3">
+            <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-brand to-brand-light"></div>
+            <h1 class="text-lg font-bold text-white">BureaustoelKiezen.nl</h1>
+          </div>
+          <p class="text-sm text-gray-400">Objectieve keuzehulp voor bureaustoelen. Transparante informatie en professionele uitstraling.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3">Contact</h4>
+          <p class="text-sm text-gray-400 leading-relaxed">E-mail: info@bureaustoelkiezen.nl<br>Telefoon: 0118-630000 (voorbeeld)</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3">Nuttig</h4>
+          <ul class="text-sm space-y-1">
+            <li><a href="#" onclick="openKeuzehulp()" class="text-gray-400 hover:text-white transition-colors duration-200">Keuzehulp</a></li>
+            <li><a href="#/vergelijker" class="text-gray-400 hover:text-white transition-colors duration-200">Vergelijker</a></li>
+            <li><a href="#/ergonomie" class="text-gray-400 hover:text-white transition-colors duration-200">Ergonomie-tips</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3">Juridisch</h4>
+          <ul class="text-sm space-y-1">
+            <li><a href="#/privacy" class="text-gray-400 hover:text-white transition-colors duration-200">Privacy (mock)</a></li>
+            <li><a href="#/cookies" class="text-gray-400 hover:text-white transition-colors duration-200">Cookies (mock)</a></li>
+            <li><a href="#/disclaimer" class="text-gray-400 hover:text-white transition-colors duration-200">Disclaimer (mock)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-500">
+        © <span id="year"></span> BureaustoelKiezen.nl
+      </div>
+    </div>
+  </footer>
+
+  <!-- Compare Bar (new feature) -->
+  <div id="compareBar" class="fixed bottom-0 left-0 right-0 bg-brand-light border-t border-brand-dark custom-shadow transform translate-y-full transition-transform duration-300 z-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+              <span id="compareCount" class="text-lg font-bold text-brand">0</span>
+              <span class="text-brand font-semibold">items in vergelijking</span>
+          </div>
+          <a href="#/vergelijker" class="bg-brand text-white font-semibold py-2 px-5 rounded-full hover:bg-brand-dark transition-colors duration-200" onclick="hideCompareBar()">
+              Vergelijk nu
+          </a>
+      </div>
+  </div>
+
+  <!-- Keuzehulp modal & overlay -->
+  <div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-60 z-50 hidden"></div>
+  <div id="ws-bureaustoel-keuzehulp" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-2xl bg-white rounded-2xl shadow-xl custom-shadow p-6 md:p-8 z-50 hidden transition-all duration-300 opacity-0 scale-95">
+    <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-3xl leading-none" onclick="closeKeuzehulp()">&times;</button>
+    <div id="keuzehulpContent"></div>
+  </div>
+  
+  <!-- Message Modal -->
+  <div id="messageModalOverlay" class="fixed inset-0 bg-black bg-opacity-60 z-[100] hidden"></div>
+  <div id="messageModal" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6 bg-white rounded-xl shadow-lg z-[101] hidden">
+    <p id="messageText" class="text-center font-semibold text-gray-800"></p>
+    <div class="flex justify-center mt-4">
+      <button onclick="closeMessageModal()" class="bg-brand text-white font-semibold py-2 px-5 rounded-full hover:bg-brand-dark">OK</button>
+    </div>
+  </div>
+
+  <script>
+    // Message Modal Functions
+    function showMessage(text) {
+      document.getElementById('messageText').textContent = text;
+      document.getElementById('messageModalOverlay').style.display = 'block';
+      document.getElementById('messageModal').style.display = 'block';
+    }
+    function closeMessageModal() {
+      document.getElementById('messageModalOverlay').style.display = 'none';
+      document.getElementById('messageModal').style.display = 'none';
+    }
+    function showMockMessage() {
+      showMessage('Bedankt, we nemen contact op. (mock)');
+    }
+
+    // ===== Simple client-side router (hash-based) =====
+    const ROUTES = ['home', 'vergelijker', 'ergonomie', 'contact', 'privacy', 'cookies', 'disclaimer'];
+    const navLinks = document.querySelectorAll('[data-route-link]');
+    const allRoutes = document.querySelectorAll('[data-route]');
+    
+    function showRoute(path) {
+      allRoutes.forEach(s => s.hidden = true);
+      const targetRoute = ROUTES.includes(path) ? path : 'notfound';
+      const node = document.querySelector(`[data-route="${targetRoute}"]`);
+      if (node) {
+        node.hidden = false;
+        if (['privacy', 'cookies', 'disclaimer'].includes(path)) {
+          const card = node.querySelector('.card');
+          card.querySelector('h3').textContent = path.charAt(0).toUpperCase() + path.slice(1);
+          card.querySelector('p.meta').innerHTML = 'Dit is een mock‑pagina voor ' + path + '. Werkelijke inhoud volgt.';
+        }
+      }
+      
+      navLinks.forEach(a => {
+        const href = a.getAttribute('href');
+        const target = href?.startsWith('#/') ? href.slice(2) : '';
+        if (target === path) {
+          a.classList.add('underline', 'font-bold', 'text-brand');
+        } else {
+          a.classList.remove('underline', 'font-bold', 'text-brand');
+        }
+      });
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.title = `BureaustoelKiezen.nl – ${path.charAt(0).toUpperCase() + path.slice(1)}`;
+    }
+    
+    function currentPath() {
+      const h = location.hash.replace('#/', '');
+      return h && h.length ? h : 'home';
+    }
+    window.addEventListener('hashchange', () => showRoute(currentPath()));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ===== Products (mock) =====
+    const PRODUCTS = [
+      { id: 1, name: "Giroflex 313", brand: "Giroflex", price: 649, img: "https://placehold.co/600x450/E2E8F0/A0ACB4?text=Foto+stoel+1" },
+      { id: 2, name: "HAG Capisco 8106", brand: "HAG", price: 999, img: "https://placehold.co/600x450/E2E8F0/A0ACB4?text=Foto+stoel+2" },
+      { id: 3, name: "Prosedia Yourope 132", brand: "Prosedia", price: 279, img: "https://placehold.co/600x450/E2E8F0/A0ACB4?text=Foto+stoel+3" },
+      { id: 4, name: "Interstuhl Every EV311", brand: "Interstuhl", price: 569, img: "https://placehold.co/600x450/E2E8F0/A0ACB4?text=Foto+stoel+4" },
+      { id: 5, name: "Herman Miller Aeron B", brand: "Herman Miller", price: 1490, img: "https://placehold.co/600x450/E2E8F0/A0ACB4?text=Foto+stoel+5" },
+      { id: 6, name: "Giroflex 64", brand: "Giroflex", price: 799, img: "https://placehold.co/600x450/E2E8F0/A0ACB4?text=Foto+stoel+6" },
+      { id: 7, name: "Interstuhl Upis1 (kruk)", brand: "Interstuhl", price: 149, img: "https://placehold.co/600x450/E2E8F0/A0ACB4?text=Foto+stoel+7" },
+      { id: 8, name: "Prosedia Bureaustoel 103", brand: "Prosedia", price: 329, img: "https://placehold.co/600x450/E2E8F0/A0ACB4?text=Foto+stoel+8" }
+    ];
+
+    const homeResults = document.getElementById('homeResults');
+    const compareTable = document.getElementById('compareTable');
+    const compareState = { items: [] };
+    const compareBar = document.getElementById('compareBar');
+    const compareCount = document.getElementById('compareCount');
+    const MAX_COMPARE = 4;
+
+    function cardHTML(p, isAdded) {
+      return `<div class="bg-white rounded-2xl custom-shadow overflow-hidden transition-all duration-300 transform hover:-translate-y-1">
+        <div class="aspect-[4/3] w-full bg-gray-100 flex items-center justify-center overflow-hidden">
+          <img loading="lazy" src="${p.img}" alt="${p.name}" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <span class="inline-block bg-brand-light text-brand text-xs font-medium px-3 py-1 rounded-full mb-2">${p.brand}</span>
+          <h4 class="text-xl font-bold text-gray-900 leading-tight mb-2">${p.name}</h4>
+          <div class="text-2xl font-extrabold text-gray-900 mb-4">€ ${p.price.toLocaleString('nl-NL')}</div>
+          <div class="flex items-center space-x-2">
+            <button class="flex-grow bg-brand text-white font-semibold py-2 px-4 rounded-full hover:bg-brand-dark transition-colors duration-200 text-sm" type="button" onclick="showMessage('Offerte aanvragen voor ${p.name} (mock)');">Offerte</button>
+            <button class="bg-gray-100 text-gray-700 font-semibold py-2 px-4 rounded-full hover:bg-gray-200 transition-colors duration-200 text-sm" type="button" onclick="toggleCompare(${p.id})">
+              ${isAdded ? '<i class="fa-solid fa-check"></i> Toegevoegd' : '<i class="fa-solid fa-plus"></i> Vergelijk'}
+            </button>
+          </div>
+        </div>
+      </div>`;
+    }
+
+    function renderProductList() {
+      if (!homeResults) return;
+      homeResults.innerHTML = PRODUCTS.map(p => {
+        const isAdded = compareState.items.includes(p.id);
+        return cardHTML(p, isAdded);
+      }).join('');
+    }
+
+    function toggleCompare(id) {
+      const i = compareState.items.indexOf(id);
+      if (i > -1) {
+        compareState.items.splice(i, 1);
+        showMessage('Product verwijderd uit vergelijking.');
+      } else {
+        if (compareState.items.length >= MAX_COMPARE) {
+          showMessage(`Je kunt maximaal ${MAX_COMPARE} items vergelijken.`);
+          return;
+        }
+        compareState.items.push(id);
+        showMessage('Product toegevoegd aan vergelijking.');
+      }
+      updateCompareBar();
+      renderProductList();
+      renderCompareTable();
+    }
+    
+    function clearCompare() {
+        compareState.items = [];
+        updateCompareBar();
+        renderProductList();
+        renderCompareTable();
+        showMessage('Vergelijker is leeg gemaakt.');
+    }
+
+    function updateCompareBar() {
+      compareCount.textContent = compareState.items.length;
+      if (compareState.items.length > 0) {
+        compareBar.classList.remove('translate-y-full');
+      } else {
+        compareBar.classList.add('translate-y-full');
+      }
+    }
+
+    function hideCompareBar() {
+      compareBar.classList.add('translate-y-full');
+    }
+    
+    document.getElementById('compareClear').addEventListener('click', clearCompare);
+
+    function renderCompareTable() {
+      if (!compareTable) return;
+      const heads = compareTable.querySelector('thead');
+      const body = compareTable.querySelector('tbody');
+      heads.innerHTML = '';
+      body.innerHTML = '';
+
+      const items = compareState.items.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
+
+      if (items.length === 0) {
+        heads.innerHTML = `<tr class="border-none"><th class="p-4 text-left font-semibold text-gray-900 border-none">Eigenschap</th></tr>`;
+        body.innerHTML = `<tr><td class="p-4 text-center text-gray-500 italic" colspan="5">Voeg modellen toe aan de vergelijker via de resultaten.</td></tr>`;
+        return;
+      }
+
+      // Headers row
+      const headerHtml = `
+        <tr>
+          <th class="p-4 text-left font-semibold text-gray-900">Eigenschap</th>
+          ${items.map(p => `
+            <th class="p-4 text-left font-semibold text-gray-900">
+              <div class="flex flex-col items-center justify-center">
+                <img src="${p.img}" alt="${p.name}" class="w-24 h-24 rounded-lg object-cover mb-2">
+                <div class="text-sm font-semibold mb-1">${p.name}</div>
+                <div class="text-xs text-gray-500">€ ${p.price.toLocaleString('nl-NL')}</div>
+                <button onclick="toggleCompare(${p.id})" class="mt-2 text-red-500 hover:text-red-700 text-xs font-semibold">Verwijder</button>
+              </div>
+            </th>
+          `).join('')}
+        </tr>
+      `;
+      heads.innerHTML = headerHtml;
+
+      // Data rows
+      const rows = [
+        ['Merk', ...items.map(p => p.brand)],
+        ['Prijs', ...items.map(p => '€ ' + p.price.toLocaleString('nl-NL'))],
+        ['Verstelbare hoogte', ...items.map(p => '<i class="fa-solid fa-check text-green-500"></i>')],
+        ['Lendensteun', ...items.map(p => '<i class="fa-solid fa-check text-green-500"></i>')],
+        ['Armleuningen', ...items.map(p => '<i class="fa-solid fa-check text-green-500"></i>')],
+      ];
+      const bodyHtml = rows.map(r => {
+        return `
+          <tr>
+            <th class="p-4 text-left font-semibold text-gray-900">${r[0]}</th>
+            ${r.slice(1).map(c => `<td class="p-4 text-center text-gray-700">${c}</td>`).join('')}
+          </tr>
+        `;
+      }).join('');
+      body.innerHTML = bodyHtml;
+    }
+
+    // Keuzehulp modal (simplified for example)
+    async function openKeuzehulp() {
+      const modal = document.getElementById('ws-bureaustoel-keuzehulp');
+      const overlay = document.getElementById('modal-overlay');
+      const content = document.getElementById('keuzehulpContent');
+      
+      content.innerHTML = `
+        <h2 class="text-2xl font-bold mb-4">Start de keuzehulp</h2>
+        <p class="text-gray-600 mb-6">Beantwoord een paar korte vragen en ontvang een persoonlijk advies.</p>
+        <div class="flex justify-center mb-6">
+          <button id="ask-gemini-btn" class="bg-brand text-white font-semibold py-3 px-8 rounded-full text-lg hover:bg-brand-dark transition-colors duration-200">✨ Vraag de Expert</button>
+        </div>
+        <div id="ai-advice-container" class="mt-4 p-4 bg-gray-100 rounded-xl hidden">
+          <h3 class="font-bold text-gray-800 mb-2">Advies van de expert</h3>
+          <p id="ai-advice-text" class="text-sm text-gray-700"></p>
+        </div>
+        <div class="flex justify-end mt-6">
+          <button onclick="closeKeuzehulp()" class="bg-gray-100 text-gray-700 font-semibold py-2 px-5 rounded-full hover:bg-gray-200">Sluiten</button>
+        </div>
+      `;
+
+      overlay.classList.remove('hidden');
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+          modal.classList.remove('opacity-0', 'scale-95');
+      }, 10);
+
+      document.getElementById('ask-gemini-btn').addEventListener('click', async () => {
+        const btn = document.getElementById('ask-gemini-btn');
+        const adviceContainer = document.getElementById('ai-advice-container');
+        const adviceText = document.getElementById('ai-advice-text');
+
+        btn.disabled = true;
+        btn.innerHTML = '✨ Bezig met genereren...';
+        adviceText.textContent = '';
+        adviceContainer.classList.remove('hidden');
+
+        try {
+          const userQuery = 'Geef een uitgebreid advies over welke functies en kenmerken een bureaustoel moet hebben voor iemand met rugklachten. Geef het antwoord in het Nederlands.';
+          
+          const payload = {
+            contents: [{ parts: [{ text: userQuery }] }],
+            tools: [{ "google_search": {} }],
+            systemInstruction: {
+                parts: [{ text: "Je bent een deskundige op het gebied van ergonomische bureaustoelen en ruggezondheid. Geef praktisch en deskundig advies." }]
+            },
+          };
+          const apiKey = "";
+          const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+          const response = await fetch(apiUrl, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+          });
+
+          if (!response.ok) {
+              if (response.status === 401) {
+                  throw new Error(`Autorisatie fout. Controleer of de API-sleutel correct is. Status: ${response.status}`);
+              }
+              throw new Error(`API fout: ${response.status}`);
+          }
+          
+          const result = await response.json();
+          const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+          
+          if (text) {
+              adviceText.textContent = text;
+          } else {
+              adviceText.textContent = 'Er is een probleem opgetreden. Probeer het later opnieuw.';
+          }
+        } catch (error) {
+          console.error('Gemini API call failed:', error);
+          adviceText.textContent = 'Fout bij het genereren van advies: ' + error.message;
+        } finally {
+          btn.disabled = false;
+          btn.innerHTML = '✨ Vraag de Expert';
+        }
+      });
+    }
+    
+    function closeKeuzehulp() {
+      const modal = document.getElementById('ws-bureaustoel-keuzehulp');
+      const overlay = document.getElementById('modal-overlay');
+      modal.classList.add('opacity-0', 'scale-95');
+      setTimeout(() => {
+        overlay.classList.add('hidden');
+        modal.classList.add('hidden');
+      }, 300);
+    }
+
+    // Initial render
+    window.onload = function() {
+      renderProductList();
+      renderCompareTable();
+      showRoute(currentPath());
+      updateCompareBar();
+    };
+  </script>
+</body>
+</html>
