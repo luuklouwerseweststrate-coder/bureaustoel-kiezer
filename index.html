@@ -519,67 +519,19 @@
     </div>
   </section>
 
-  <!-- Offerte -->
-  <section id="offerte" class="bg-gray-900 py-14 sm:py-20">
-    <div class="max-w-xl mx-auto px-4">
-      <div class="text-center mb-8 fade-up">
-        <span class="text-[10px] text-brand-400 uppercase tracking-widest font-bold">Contact</span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1 tracking-tight">Vrijblijvende offerte</h2>
-        <p class="text-sm text-gray-400 mt-2">Vul het formulier in en Luuk neemt binnen 24 uur contact op.</p>
-      </div>
-
-      <form class="bg-white rounded-2xl p-5 sm:p-7 fade-up" onsubmit="event.preventDefault(); window.location.href='mailto:luuk.louwerse@weststrate.nl?subject=Offerte%20bureaustoelen&body=Naam:%20' + encodeURIComponent(this.naam.value) + '%0ABedrijf:%20' + encodeURIComponent(this.bedrijf.value) + '%0AE-mail:%20' + encodeURIComponent(this.email.value) + '%0ATelefoon:%20' + encodeURIComponent(this.telefoon.value) + '%0AAantal:%20' + encodeURIComponent(this.aantal.value) + '%0ABudget:%20' + encodeURIComponent(this.budget.value) + '%0ABericht:%20' + encodeURIComponent(this.bericht.value);">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-          <div>
-            <label class="block text-xs font-semibold text-gray-700 mb-1.5">Naam *</label>
-            <input type="text" name="naam" required placeholder="Je naam" class="w-full px-3.5 py-3 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-1 focus:ring-gray-900 outline-none text-sm">
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-gray-700 mb-1.5">Bedrijf</label>
-            <input type="text" name="bedrijf" placeholder="Optioneel" class="w-full px-3.5 py-3 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-1 focus:ring-gray-900 outline-none text-sm">
-          </div>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-          <div>
-            <label class="block text-xs font-semibold text-gray-700 mb-1.5">E-mail *</label>
-            <input type="email" name="email" required placeholder="naam@voorbeeld.nl" class="w-full px-3.5 py-3 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-1 focus:ring-gray-900 outline-none text-sm">
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-gray-700 mb-1.5">Telefoon</label>
-            <input type="tel" name="telefoon" placeholder="06-12345678" class="w-full px-3.5 py-3 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-1 focus:ring-gray-900 outline-none text-sm">
-          </div>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-          <div>
-            <label class="block text-xs font-semibold text-gray-700 mb-1.5">Aantal stoelen</label>
-            <select name="aantal" class="w-full px-3.5 py-3 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-1 focus:ring-gray-900 outline-none text-sm">
-              <option>1 stoel</option>
-              <option>2-5 stoelen</option>
-              <option>5-10 stoelen</option>
-              <option>10-25 stoelen</option>
-              <option>25+ stoelen</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-gray-700 mb-1.5">Budget</label>
-            <select name="budget" class="w-full px-3.5 py-3 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-1 focus:ring-gray-900 outline-none text-sm">
-              <option>Tot €300</option>
-              <option>€300 - €600</option>
-              <option>€600 - €1.000</option>
-              <option>€1.000+</option>
-              <option>Weet ik nog niet</option>
-            </select>
-          </div>
-        </div>
-        <div class="mb-4">
-          <label class="block text-xs font-semibold text-gray-700 mb-1.5">Vertel ons wat je zoekt</label>
-          <textarea name="bericht" rows="3" placeholder="Bijv. ergonomische stoel voor thuiskantoor..." class="w-full px-3.5 py-3 rounded-xl border border-gray-200 focus:border-gray-900 focus:ring-1 focus:ring-gray-900 outline-none text-sm resize-none"></textarea>
-        </div>
-        <button type="submit" class="w-full bg-gray-900 text-white font-semibold py-3.5 rounded-full hover:bg-gray-800 transition-colors text-sm">
-          Verstuur je aanvraag
+  <!-- CTA Banner -->
+  <section class="py-14 sm:py-20" style="background:#6B2FA0">
+    <div class="max-w-3xl mx-auto px-4 text-center fade-up">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Klaar om comfortabel te zitten?</h2>
+      <p class="text-sm text-white/70 mt-2 mb-6 max-w-md mx-auto">Vraag een vrijblijvende offerte aan en Luuk neemt binnen 24 uur contact op.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <button onclick="openOfferte()" class="bg-white text-gray-900 font-semibold text-sm py-3.5 px-7 rounded-full hover:bg-gray-100 transition-colors shadow-lg">
+          Offerte aanvragen
         </button>
-        <p class="text-[10px] text-gray-400 text-center mt-3">We delen je gegevens niet met derden.</p>
-      </form>
+        <a href="tel:+31118630000" class="border border-white/30 text-white font-medium text-sm py-3.5 px-7 rounded-full hover:bg-white/10 transition-colors">
+          <i class="fa-solid fa-phone mr-1.5 text-xs"></i>Bel 0118-630 000
+        </a>
+      </div>
     </div>
   </section>
 
