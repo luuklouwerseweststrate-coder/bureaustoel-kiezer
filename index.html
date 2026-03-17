@@ -24,7 +24,13 @@
         extend: {
           fontFamily: { sans: ['"DM Sans"', 'system-ui', 'sans-serif'] },
           colors: {
-            brand: { 50: '#f0fdf4', 100: '#dcfce7', 500: '#22c55e', 600: '#16a34a', 700: '#15803d' }
+            brand: {
+              purple: '#6B2FA0',
+              blue: '#2D3294',
+              teal: '#009B8D',
+              orange: '#E8871E',
+              50: '#f5f0fa', 100: '#ead8f5', 400: '#9b5fc7', 500: '#7B35B2', 600: '#6B2FA0', 700: '#5A2787'
+            }
           },
           borderRadius: { '2xl': '1rem', '3xl': '1.25rem', '4xl': '1.5rem' }
         }
@@ -77,11 +83,11 @@
   <div class="bg-gray-900 text-white text-xs">
     <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between">
       <div class="flex items-center space-x-3 sm:space-x-5">
-        <span class="flex items-center space-x-1.5"><i class="fa-solid fa-truck text-green-400 text-[10px]"></i><span class="hidden sm:inline">Gratis bezorging</span></span>
-        <span class="flex items-center space-x-1.5"><i class="fa-solid fa-shield-halved text-green-400 text-[10px]"></i><span class="hidden sm:inline">NEN-gecertificeerd</span></span>
+        <span class="flex items-center space-x-1.5"><i class="fa-solid fa-truck text-brand-400 text-[10px]"></i><span class="hidden sm:inline">Gratis bezorging</span></span>
+        <span class="flex items-center space-x-1.5"><i class="fa-solid fa-shield-halved text-brand-400 text-[10px]"></i><span class="hidden sm:inline">NEN-gecertificeerd</span></span>
         <span class="flex items-center space-x-1.5"><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><span>4.8/5 <span class="hidden sm:inline text-gray-500">(347 reviews)</span></span></span>
       </div>
-      <a href="tel:+31118630000" class="hover:text-green-400 transition-colors">
+      <a href="tel:+31118630000" class="hover:text-brand-400 transition-colors">
         <i class="fa-solid fa-phone text-[10px] mr-1"></i>0118‑630 000
       </a>
     </div>
@@ -90,7 +96,7 @@
   <!-- Nav -->
   <header class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-gray-100">
     <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-14">
-      <a href="#" class="text-base font-bold text-gray-900 tracking-tight">weststrate<span class="text-green-600">.</span></a>
+      <a href="#" class="text-base font-bold text-gray-900 tracking-tight">weststrate<span class="text-brand-600 font-extrabold">.</span></a>
       <nav class="hidden md:flex items-center space-x-6 text-sm">
         <a href="#aanbod" class="text-gray-500 hover:text-gray-900 transition-colors">Aanbod</a>
         <a href="#over-ons" class="text-gray-500 hover:text-gray-900 transition-colors">Over ons</a>
@@ -123,9 +129,9 @@
       <div class="max-w-6xl mx-auto px-4 pb-8 sm:pb-10 md:pb-14">
         <div class="max-w-xl">
           <div class="flex flex-wrap items-center gap-2 mb-4">
-            <span class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">Gratis bezorging</span>
-            <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-3 py-1 rounded-full">30 dagen proberen</span>
-            <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-3 py-1 rounded-full">Persoonlijk advies</span>
+            <span class="text-white text-xs font-semibold px-3 py-1 rounded-full" style="background:#6B2FA0">Gratis bezorging</span>
+            <span class="text-white text-xs font-semibold px-3 py-1 rounded-full" style="background:#2D3294">30 dagen proberen</span>
+            <span class="text-white text-xs font-semibold px-3 py-1 rounded-full" style="background:#009B8D">Persoonlijk advies</span>
           </div>
           <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-[1.15] mb-3 tracking-tight">
             Vind jouw perfecte<br>bureaustoel
@@ -138,7 +144,7 @@
               Vraag een offerte aan
             </a>
             <a href="tel:+31118630000" class="bg-white border border-gray-200 text-gray-700 font-medium text-center py-3.5 px-6 rounded-full hover:bg-gray-50 transition-colors text-sm shadow-sm">
-              <i class="fa-solid fa-phone mr-1.5 text-green-600 text-xs"></i>Bel Luuk direct
+              <i class="fa-solid fa-phone mr-1.5 text-xs" style="color:#6B2FA0"></i>Bel Luuk direct
             </a>
           </div>
         </div>
@@ -172,7 +178,7 @@
   <section id="aanbod" class="bg-gray-50/50 py-14 sm:py-20">
     <div class="max-w-6xl mx-auto px-4">
       <div class="mb-10 fade-up">
-        <span class="text-[10px] text-green-600 uppercase tracking-widest font-bold">Collectie</span>
+        <span class="text-[10px] text-brand-600 uppercase tracking-widest font-bold">Collectie</span>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-1 tracking-tight">Bekijk ons aanbod</h2>
         <p class="text-sm text-gray-500 mt-2 max-w-md">Een greep uit onze collectie. Benieuwd naar de beste prijs? Vraag een offerte aan.</p>
       </div>
@@ -182,7 +188,7 @@
         <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden fade-up">
           <div class="relative aspect-square bg-gray-50 flex items-center justify-center">
             <i class="fa-solid fa-chair text-4xl text-gray-200"></i>
-            <span class="absolute top-3 left-3 bg-green-500 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full">Bestseller</span>
+            <span class="absolute top-3 left-3 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full" style="background:#6B2FA0">Bestseller</span>
           </div>
           <div class="p-3.5 sm:p-4">
             <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">Herman Miller</p>
@@ -205,7 +211,7 @@
         <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden fade-up">
           <div class="relative aspect-square bg-gray-50 flex items-center justify-center">
             <i class="fa-solid fa-chair text-4xl text-gray-200"></i>
-            <span class="absolute top-3 left-3 bg-gray-900 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full">Populair</span>
+            <span class="absolute top-3 left-3 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full" style="background:#2D3294">Populair</span>
           </div>
           <div class="p-3.5 sm:p-4">
             <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">HAG</p>
@@ -228,7 +234,7 @@
         <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden fade-up">
           <div class="relative aspect-square bg-gray-50 flex items-center justify-center">
             <i class="fa-solid fa-chair text-4xl text-gray-200"></i>
-            <span class="absolute top-3 left-3 bg-amber-500 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full">Aanbieding</span>
+            <span class="absolute top-3 left-3 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full" style="background:#E8871E">Aanbieding</span>
           </div>
           <div class="p-3.5 sm:p-4">
             <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">Giroflex</p>
@@ -254,7 +260,7 @@
         <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden fade-up">
           <div class="relative aspect-square bg-gray-50 flex items-center justify-center">
             <i class="fa-solid fa-chair text-4xl text-gray-200"></i>
-            <span class="absolute top-3 left-3 bg-green-500 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full">Nieuw</span>
+            <span class="absolute top-3 left-3 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full" style="background:#009B8D">Nieuw</span>
           </div>
           <div class="p-3.5 sm:p-4">
             <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">Interstuhl</p>
@@ -341,34 +347,34 @@
   <section class="bg-white py-14 sm:py-20">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-10 fade-up">
-        <span class="text-[10px] text-green-600 uppercase tracking-widest font-bold">Voordelen</span>
+        <span class="text-[10px] text-brand-600 uppercase tracking-widest font-bold">Voordelen</span>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-1 tracking-tight">Waarom klanten voor ons kiezen</h2>
       </div>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
         <div class="bg-gray-50 rounded-2xl p-5 sm:p-6 text-center fade-up">
           <div class="w-11 h-11 rounded-full bg-white flex items-center justify-center mx-auto mb-3 shadow-sm">
-            <i class="fa-solid fa-comments text-green-600 text-base"></i>
+            <i class="fa-solid fa-comments text-base" style="color:#6B2FA0"></i>
           </div>
           <h3 class="text-sm font-bold text-gray-900 mb-1">Persoonlijk advies</h3>
           <p class="text-xs text-gray-500 leading-relaxed">Luuk denkt met je mee. Eerlijk en onafhankelijk.</p>
         </div>
         <div class="bg-gray-50 rounded-2xl p-5 sm:p-6 text-center fade-up">
           <div class="w-11 h-11 rounded-full bg-white flex items-center justify-center mx-auto mb-3 shadow-sm">
-            <i class="fa-solid fa-truck text-green-600 text-base"></i>
+            <i class="fa-solid fa-truck text-base" style="color:#2D3294"></i>
           </div>
           <h3 class="text-sm font-bold text-gray-900 mb-1">Gratis bezorgd</h3>
           <p class="text-xs text-gray-500 leading-relaxed">Incl. montage op locatie. Door heel Nederland.</p>
         </div>
         <div class="bg-gray-50 rounded-2xl p-5 sm:p-6 text-center fade-up">
           <div class="w-11 h-11 rounded-full bg-white flex items-center justify-center mx-auto mb-3 shadow-sm">
-            <i class="fa-solid fa-rotate-left text-green-600 text-base"></i>
+            <i class="fa-solid fa-rotate-left text-base" style="color:#009B8D"></i>
           </div>
           <h3 class="text-sm font-bold text-gray-900 mb-1">30 dagen proberen</h3>
           <p class="text-xs text-gray-500 leading-relaxed">Niet blij? We halen 'm gewoon weer op.</p>
         </div>
         <div class="bg-gray-50 rounded-2xl p-5 sm:p-6 text-center fade-up">
           <div class="w-11 h-11 rounded-full bg-white flex items-center justify-center mx-auto mb-3 shadow-sm">
-            <i class="fa-solid fa-shield-halved text-green-600 text-base"></i>
+            <i class="fa-solid fa-shield-halved text-base" style="color:#E8871E"></i>
           </div>
           <h3 class="text-sm font-bold text-gray-900 mb-1">Tot 12 jaar garantie</h3>
           <p class="text-xs text-gray-500 leading-relaxed">Fabrieksgarantie op alle onderdelen.</p>
@@ -382,7 +388,7 @@
     <div class="max-w-6xl mx-auto px-4">
       <div class="grid md:grid-cols-5 gap-8 md:gap-12 items-center fade-up">
         <div class="md:col-span-3">
-          <span class="text-[10px] text-green-600 uppercase tracking-widest font-bold">Over ons</span>
+          <span class="text-[10px] text-brand-600 uppercase tracking-widest font-bold">Over ons</span>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-1 mb-4 tracking-tight">Al 25+ jaar specialist in bureaustoelen</h2>
           <p class="text-sm text-gray-500 leading-relaxed mb-4">
             Weststrate helpt bedrijven en thuiswerkers aan de juiste werkplek. We werken alleen met A-merken en NEN-gecertificeerde producten. Geen verkooppraatjes — gewoon eerlijk advies.
@@ -427,7 +433,7 @@
   <section id="reviews" class="bg-white py-14 sm:py-20">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-10 fade-up">
-        <span class="text-[10px] text-green-600 uppercase tracking-widest font-bold">Reviews</span>
+        <span class="text-[10px] text-brand-600 uppercase tracking-widest font-bold">Reviews</span>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-1 tracking-tight">Wat klanten zeggen</h2>
         <div class="flex items-center justify-center space-x-1.5 mt-3">
           <i class="fa-solid fa-star text-yellow-400 text-sm"></i>
@@ -490,7 +496,7 @@
   <section class="bg-gray-50/50 py-14 sm:py-20">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-10 fade-up">
-        <span class="text-[10px] text-green-600 uppercase tracking-widest font-bold">Werkwijze</span>
+        <span class="text-[10px] text-brand-600 uppercase tracking-widest font-bold">Werkwijze</span>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-1 tracking-tight">Zo simpel is het</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-up">
@@ -517,7 +523,7 @@
   <section id="offerte" class="bg-gray-900 py-14 sm:py-20">
     <div class="max-w-xl mx-auto px-4">
       <div class="text-center mb-8 fade-up">
-        <span class="text-[10px] text-green-400 uppercase tracking-widest font-bold">Contact</span>
+        <span class="text-[10px] text-brand-400 uppercase tracking-widest font-bold">Contact</span>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1 tracking-tight">Vrijblijvende offerte</h2>
         <p class="text-sm text-gray-400 mt-2">Vul het formulier in en Luuk neemt binnen 24 uur contact op.</p>
       </div>
@@ -581,7 +587,7 @@
   <section id="faq" class="bg-white py-14 sm:py-20">
     <div class="max-w-2xl mx-auto px-4">
       <div class="text-center mb-10 fade-up">
-        <span class="text-[10px] text-green-600 uppercase tracking-widest font-bold">FAQ</span>
+        <span class="text-[10px] text-brand-600 uppercase tracking-widest font-bold">FAQ</span>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-1 tracking-tight">Veelgestelde vragen</h2>
       </div>
       <div class="space-y-2.5 fade-up">
@@ -626,7 +632,7 @@
     <div class="max-w-6xl mx-auto px-4">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pb-8">
         <div class="col-span-2 md:col-span-1">
-          <p class="text-base font-bold text-gray-900 tracking-tight">weststrate<span class="text-green-600">.</span></p>
+          <p class="text-base font-bold text-gray-900 tracking-tight">weststrate<span class="text-brand-600 font-extrabold">.</span></p>
           <p class="text-xs text-gray-400 leading-relaxed mt-2">Specialist in bureaustoelen. Al 25+ jaar jouw partner voor kantoormeubelen.</p>
         </div>
         <div>
@@ -666,7 +672,7 @@
         <button onclick="closeOfferte()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-400 hover:text-gray-600 transition-colors text-sm z-10">&times;</button>
 
         <div class="p-5 sm:p-7">
-          <span class="text-[10px] text-green-600 uppercase tracking-widest font-bold">Vrijblijvend</span>
+          <span class="text-[10px] text-brand-600 uppercase tracking-widest font-bold">Vrijblijvend</span>
           <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900 mt-1 tracking-tight">Offerte aanvragen</h2>
           <p class="text-sm text-gray-500 mt-1 mb-5">Vul het formulier in en Luuk neemt binnen 24 uur contact op.</p>
 
@@ -753,7 +759,7 @@
       <div class="w-10 h-10 rounded-full overflow-hidden bg-white flex items-center justify-center">
         <img src="luuk.jpg" alt="Luuk" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fa-solid fa-headset text-gray-900\'></i>'">
       </div>
-      <span class="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-white"></span>
+      <span class="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full" style="background:#6B2FA0 border-2 border-white"></span>
     </button>
   </div>
 
