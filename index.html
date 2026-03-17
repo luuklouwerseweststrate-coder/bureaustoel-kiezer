@@ -127,45 +127,50 @@
   </header>
 
   <!-- Hero -->
-  <section class="relative overflow-hidden">
-    <!-- Grote kantoorafbeelding -->
-    <div class="relative w-full h-[50vh] sm:h-[55vh] md:h-[65vh]">
-      <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1600&h=900&fit=crop&q=80" alt="Lichte moderne kantooromgeving met stijlvolle werkplekken" class="w-full h-full object-cover hero-img">
-      <div class="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-white/20"></div>
-    </div>
-
-    <!-- Tekst over de foto, onderaan -->
-    <div class="absolute bottom-0 left-0 right-0">
-      <div class="max-w-6xl mx-auto px-4 pb-8 sm:pb-10 md:pb-14">
-        <div class="max-w-xl">
-          <div class="flex flex-wrap items-center gap-2 mb-4">
+  <section class="bg-gradient-to-br from-gray-50 to-white py-12 sm:py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <!-- Tekst links -->
+        <div class="flex-1 text-center md:text-left">
+          <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-5">
             <span class="text-white text-xs font-semibold px-3 py-1 rounded-full" style="background:#6B2FA0">Gratis bezorging</span>
             <span class="text-white text-xs font-semibold px-3 py-1 rounded-full" style="background:#2D3294">30 dagen proberen</span>
             <span class="text-white text-xs font-semibold px-3 py-1 rounded-full" style="background:#009B8D">Persoonlijk advies</span>
           </div>
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-[1.15] mb-3 tracking-tight">
-            Vind jouw perfecte<br>bureaustoel
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-[1.15] mb-4 tracking-tight">
+            Hey, ik ben Luuk.<br>Ik help je de perfecte<br>bureaustoel vinden.
           </h1>
-          <p class="text-gray-600 mb-6 leading-relaxed text-sm sm:text-base max-w-md">
-            Eerlijk advies van Luuk, scherpe prijzen en stoelen die je met plezier bezorgd krijgt. Al 25+ jaar.
+          <p class="text-gray-600 mb-6 leading-relaxed text-sm sm:text-base max-w-md mx-auto md:mx-0">
+            Al jaren help ik bedrijven en thuiswerkers aan de juiste stoel. Eerlijk advies, scherpe prijzen en gratis bezorgd bij jou op kantoor.
           </p>
-          <div class="flex flex-col sm:flex-row gap-3">
+          <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
             <a href="javascript:void(0)" onclick="openOfferte()" class="bg-gray-900 text-white font-semibold text-center py-3.5 px-6 rounded-full hover:bg-gray-800 transition-colors text-sm">
               Vraag een offerte aan
             </a>
             <a href="tel:+31118630000" class="bg-white border border-gray-200 text-gray-700 font-medium text-center py-3.5 px-6 rounded-full hover:bg-gray-50 transition-colors text-sm shadow-sm">
-              <i class="fa-solid fa-phone mr-1.5 text-xs" style="color:#6B2FA0"></i>Bel Luuk direct
+              <i class="fa-solid fa-phone mr-1.5 text-xs" style="color:#6B2FA0"></i>Bel me direct
             </a>
+          </div>
+          <div class="flex items-center justify-center md:justify-start gap-4 mt-6 text-sm text-gray-400">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-star text-yellow-400 text-xs"></i><strong class="text-gray-900">4.8/5</strong> (347 reviews)</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-brand-400 text-xs"></i>NEN-gecertificeerd</span>
+          </div>
+        </div>
+        <!-- Luuk foto rechts -->
+        <div class="flex-shrink-0 relative">
+          <div class="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+            <img src="luuk.jpg" alt="Luuk Louwerse - Jouw stoelen-specialist" class="w-full h-full object-cover object-top" onerror="this.onerror=null; this.style.display='none'; this.parentElement.classList.add('bg-gray-100','flex','items-center','justify-center'); this.parentElement.insertAdjacentHTML('beforeend','<i class=\'fa-solid fa-user text-6xl text-gray-300\'></i>')">
+          </div>
+          <div class="absolute -bottom-3 -left-3 bg-white rounded-xl px-4 py-2.5 shadow-lg border border-gray-100">
+            <p class="text-xs font-bold text-gray-900">Luuk Louwerse</p>
+            <p class="text-[10px] text-gray-400">Stoelen-specialist bij Weststrate</p>
+          </div>
+          <div class="hidden sm:block absolute -top-2 -right-2 bg-white rounded-xl px-3 py-2 shadow-lg border border-gray-100 text-center">
+            <p class="text-[10px] text-gray-500 uppercase tracking-wide font-semibold">Vanaf</p>
+            <p class="text-xl font-extrabold text-gray-900">€149</p>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Prijskaart -->
-    <div class="hidden sm:block absolute bottom-8 right-8 md:bottom-14 md:right-12 bg-white rounded-2xl p-5 text-center shadow-lg border border-gray-100">
-      <p class="text-[10px] text-gray-500 mb-0.5 uppercase tracking-wide font-semibold">Vanaf</p>
-      <p class="text-3xl font-extrabold text-gray-900">€149</p>
-      <p class="text-[10px] text-gray-400 mt-0.5">incl. BTW &middot; gratis bezorgd</p>
     </div>
   </section>
 
@@ -375,20 +380,31 @@
     </div>
   </section>
 
-  <!-- Over ons -->
+  <!-- Over Luuk -->
   <section id="over-ons" class="bg-gray-50/50 py-14 sm:py-20">
     <div class="max-w-6xl mx-auto px-4">
       <div class="grid md:grid-cols-5 gap-8 md:gap-12 items-center fade-up">
-        <div class="md:col-span-3">
-          <span class="text-[10px] text-brand-600 uppercase tracking-widest font-bold">Over ons</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-1 mb-4 tracking-tight">Al 25+ jaar specialist in bureaustoelen</h2>
+        <div class="md:col-span-2 flex justify-center order-2 md:order-1">
+          <div class="relative">
+            <div class="w-56 h-64 sm:w-64 sm:h-72 rounded-2xl overflow-hidden shadow-lg border-2 border-white">
+              <img src="luuk.jpg" alt="Luuk Louwerse" class="w-full h-full object-cover object-top" onerror="this.onerror=null; this.style.display='none'; this.parentElement.classList.add('bg-gray-100','flex','items-center','justify-center'); this.parentElement.insertAdjacentHTML('beforeend','<i class=\'fa-solid fa-user text-5xl text-gray-300\'></i>')">
+            </div>
+            <div class="absolute -bottom-3 -right-3 bg-white rounded-xl px-3 py-2 shadow-md border border-gray-100 flex items-center gap-2">
+              <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <span class="text-xs font-semibold text-gray-700">Beschikbaar voor advies</span>
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-3 order-1 md:order-2">
+          <span class="text-[10px] text-brand-600 uppercase tracking-widest font-bold">Even voorstellen</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-1 mb-4 tracking-tight">Ik ben Luuk, jouw stoelen-specialist</h2>
           <p class="text-sm text-gray-500 leading-relaxed mb-4">
-            Weststrate helpt bedrijven en thuiswerkers aan de juiste werkplek. We werken alleen met A-merken en NEN-gecertificeerde producten. Geen verkooppraatjes — gewoon eerlijk advies.
+            Ik werk bij Weststrate en help dagelijks bedrijven en thuiswerkers aan de juiste werkplek. Geen verkooppraatjes — ik luister naar wat je nodig hebt en geef eerlijk advies. We werken alleen met A-merken en NEN-gecertificeerde producten.
           </p>
           <p class="text-sm text-gray-500 leading-relaxed mb-8">
-            Of je nu 1 stoel voor thuis zoekt of 100 werkplekken wilt inrichten — Luuk helpt je graag. Persoonlijk, deskundig en altijd met oog voor je budget.
+            Of je nu 1 stoel voor thuis zoekt of 100 werkplekken wilt inrichten — bel, mail of stuur een bericht. Ik denk graag met je mee.
           </p>
-          <div class="flex items-center space-x-8">
+          <div class="flex items-center space-x-8 mb-6">
             <div>
               <p class="text-2xl font-extrabold text-gray-900">25+</p>
               <p class="text-[10px] text-gray-400 font-semibold uppercase tracking-wide">jaar ervaring</p>
@@ -402,18 +418,14 @@
               <p class="text-[10px] text-gray-400 font-semibold uppercase tracking-wide">klantscore</p>
             </div>
           </div>
-        </div>
-        <div class="md:col-span-2 flex justify-center">
-          <div class="bg-white rounded-2xl border border-gray-100 p-6 sm:p-8 max-w-[260px] w-full text-center shadow-sm">
-            <div class="w-20 h-20 rounded-full bg-gray-100 mx-auto mb-3 overflow-hidden flex items-center justify-center">
-              <img src="luuk.jpg" alt="Luuk Louwerse" class="w-full h-full object-cover" onerror="this.onerror=null; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<i class=\'fa-solid fa-user text-2xl text-gray-400\'></i>')">
-            </div>
-            <h3 class="text-sm font-bold text-gray-900">Luuk Louwerse</h3>
-            <p class="text-xs text-gray-400 mt-0.5">Jouw stoelen-specialist</p>
-            <p class="text-xs text-gray-500 mt-2 leading-relaxed">Vraag me alles over stoelen, ergonomie en werkplekken.</p>
-            <a href="mailto:luuk.louwerse@weststrate.nl?subject=Advies%20bureaustoelen" class="inline-flex items-center space-x-1.5 bg-gray-900 text-white text-xs font-semibold py-2.5 px-5 rounded-full hover:bg-gray-800 transition-colors mt-4">
+          <div class="flex flex-wrap gap-3">
+            <a href="mailto:luuk.louwerse@weststrate.nl?subject=Advies%20bureaustoelen" class="inline-flex items-center space-x-1.5 bg-gray-900 text-white text-xs font-semibold py-2.5 px-5 rounded-full hover:bg-gray-800 transition-colors">
               <i class="fa-solid fa-envelope text-[10px]"></i>
               <span>Mail Luuk</span>
+            </a>
+            <a href="tel:+31118630000" class="inline-flex items-center space-x-1.5 bg-white border border-gray-200 text-gray-700 text-xs font-medium py-2.5 px-5 rounded-full hover:bg-gray-50 transition-colors">
+              <i class="fa-solid fa-phone text-[10px]" style="color:#6B2FA0"></i>
+              <span>0118-630 000</span>
             </a>
           </div>
         </div>
