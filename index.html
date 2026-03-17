@@ -218,35 +218,13 @@
         <p class="text-sm text-gray-500 mt-2 max-w-md">Een greep uit onze collectie. Benieuwd naar de beste prijs? Vraag een offerte aan.</p>
       </div>
 
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5">
 
-        <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden fade-up">
-          <div class="relative aspect-square bg-gray-50 flex items-center justify-center overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?w=400&h=400&fit=crop&q=80" alt="Herman Miller Aeron Remastered" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<i class=\'fa-solid fa-chair text-4xl text-gray-200\'></i>')">
-            <span class="absolute top-3 left-3 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full" style="background:#6B2FA0">Bestseller</span>
-          </div>
-          <div class="p-3.5 sm:p-4">
-            <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">Herman Miller</p>
-            <h3 class="text-sm font-bold text-gray-900 mt-0.5 leading-tight">Aeron Remastered</h3>
-            <div class="flex items-center mt-1.5">
-              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
-              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
-              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
-              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
-              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
-              <span class="text-[9px] text-gray-400 ml-1">(324)</span>
-            </div>
-            <div class="flex items-center justify-between mt-3">
-              <span class="text-base font-extrabold text-gray-900">€1.490</span>
-              <a href="javascript:void(0)" onclick="openOfferte('Herman Miller Aeron Remastered')" class="bg-[#E8811A] text-white text-[11px] font-semibold py-1.5 px-3.5 rounded-full hover:bg-[#D07316] transition-colors">Offerte</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card bg-white rounded-2xl border-2 border-[#E8811A] overflow-hidden fade-up relative ring-4 ring-[#E8811A]/10">
+        <!-- 1. HAG Capisco 8106 — Meest gekozen (geen hover) -->
+        <div class="product-card group bg-white rounded-2xl border-2 border-[#E8811A] overflow-hidden fade-up relative ring-4 ring-[#E8811A]/10">
           <div class="absolute -top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#E8811A] text-white text-[9px] font-bold px-3 py-1 rounded-full z-10 whitespace-nowrap shadow-sm">Meest gekozen</div>
-          <div class="relative aspect-square bg-gray-50 flex items-center justify-center overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=400&h=400&fit=crop&q=80" alt="HAG Capisco 8106" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<i class=\'fa-solid fa-chair text-4xl text-gray-200\'></i>')">
+          <div class="relative aspect-square flex items-center justify-center p-6">
+            <img src="bureaustoel_groen-removebg-preview.png" alt="HAG Capisco 8106" loading="lazy" class="max-h-full max-w-full object-contain drop-shadow-lg transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<i class=\'fa-solid fa-chair text-4xl text-gray-200\'></i>')">
             <span class="absolute top-3 left-3 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full" style="background:#2D3294">Populair</span>
           </div>
           <div class="p-3.5 sm:p-4">
@@ -267,9 +245,11 @@
           </div>
         </div>
 
-        <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden fade-up">
-          <div class="relative aspect-square bg-gray-50 flex items-center justify-center overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=400&fit=crop&q=80" alt="Interstuhl Every EV311" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<i class=\'fa-solid fa-chair text-4xl text-gray-200\'></i>')">
+        <!-- 2. Interstuhl Every EV311 — MET hover (blauw → grijs achterkant) -->
+        <div class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden fade-up">
+          <div class="relative aspect-square flex items-center justify-center p-6">
+            <img src="Bureaustoel_325BL_blauw__zonder_hoofdsteun-removebg-preview.png" alt="Interstuhl Every EV311" loading="lazy" class="max-h-full max-w-full object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0" onerror="this.onerror=null; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<i class=\'fa-solid fa-chair text-4xl text-gray-200\'></i>')">
+            <img src="Bureaustoel_grijs_hover-removebg-preview.png" alt="Interstuhl Every EV311 achterkant" loading="lazy" class="absolute inset-0 m-auto max-h-[calc(100%-3rem)] max-w-[calc(100%-3rem)] object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
             <span class="absolute top-3 left-3 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full" style="background:#009B8D">Nieuw</span>
           </div>
           <div class="p-3.5 sm:p-4">
@@ -290,9 +270,11 @@
           </div>
         </div>
 
-        <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden fade-up">
-          <div class="aspect-square bg-gray-50 flex items-center justify-center overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&q=80" alt="Giroflex 313" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<i class=\'fa-solid fa-chair text-4xl text-gray-200\'></i>')">
+        <!-- 3. Giroflex 313 — MET hover (donker) -->
+        <div class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden fade-up">
+          <div class="relative aspect-square flex items-center justify-center p-6">
+            <img src="bureuastoel_donker-removebg-preview.png" alt="Giroflex 313" loading="lazy" class="max-h-full max-w-full object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0" onerror="this.onerror=null; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<i class=\'fa-solid fa-chair text-4xl text-gray-200\'></i>')">
+            <img src="bureaustoel_donker_hover-removebg-preview.png" alt="Giroflex 313 achterkant" loading="lazy" class="absolute inset-0 m-auto max-h-[calc(100%-3rem)] max-w-[calc(100%-3rem)] object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
           </div>
           <div class="p-3.5 sm:p-4">
             <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">Giroflex</p>
@@ -305,9 +287,11 @@
           </div>
         </div>
 
-        <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden fade-up">
-          <div class="aspect-square bg-gray-50 flex items-center justify-center overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1596079890744-c1a0462d0975?w=400&h=400&fit=crop&q=80" alt="Prosedia Yourope 132" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<i class=\'fa-solid fa-chair text-4xl text-gray-200\'></i>')">
+        <!-- 4. Prosedia Yourope 132 — MET hover (zwart) -->
+        <div class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden fade-up">
+          <div class="relative aspect-square flex items-center justify-center p-6">
+            <img src="bureaustoel_zwart-removebg-preview.png" alt="Prosedia Yourope 132" loading="lazy" class="max-h-full max-w-full object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0" onerror="this.onerror=null; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<i class=\'fa-solid fa-chair text-4xl text-gray-200\'></i>')">
+            <img src="bureaustoel_zwart_hover-removebg-preview.png" alt="Prosedia Yourope 132 achterkant" loading="lazy" class="absolute inset-0 m-auto max-h-[calc(100%-3rem)] max-w-[calc(100%-3rem)] object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
           </div>
           <div class="p-3.5 sm:p-4">
             <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">Prosedia</p>
@@ -320,9 +304,10 @@
           </div>
         </div>
 
-        <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden fade-up">
-          <div class="aspect-square bg-gray-50 flex items-center justify-center overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1611269154421-4e27233ac5c7?w=400&h=400&fit=crop&q=80" alt="Prosedia Bureaustoel 103" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<i class=\'fa-solid fa-chair text-4xl text-gray-200\'></i>')">
+        <!-- 5. Prosedia Bureaustoel 103 — geen hover -->
+        <div class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden fade-up">
+          <div class="relative aspect-square flex items-center justify-center p-6">
+            <img src="bureaustoel_goedkoop-removebg-preview.png" alt="Prosedia Bureaustoel 103" loading="lazy" class="max-h-full max-w-full object-contain drop-shadow-lg transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<i class=\'fa-solid fa-chair text-4xl text-gray-200\'></i>')">
           </div>
           <div class="p-3.5 sm:p-4">
             <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">Prosedia</p>
@@ -331,21 +316,6 @@
             <div class="flex items-center justify-between mt-3">
               <span class="text-base font-extrabold text-gray-900">€329</span>
               <a href="javascript:void(0)" onclick="openOfferte('Prosedia Bureaustoel 103')" class="bg-[#E8811A] text-white text-[11px] font-semibold py-1.5 px-3.5 rounded-full hover:bg-[#D07316] transition-colors">Offerte</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card bg-white rounded-2xl border border-gray-100 overflow-hidden fade-up">
-          <div class="aspect-square bg-gray-50 flex items-center justify-center overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1519219788971-8d9797e0928e?w=400&h=400&fit=crop&q=80" alt="Interstuhl Upis1 Kruk" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<i class=\'fa-solid fa-chair text-4xl text-gray-200\'></i>')">
-          </div>
-          <div class="p-3.5 sm:p-4">
-            <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">Interstuhl</p>
-            <h3 class="text-sm font-bold text-gray-900 mt-0.5 leading-tight">Upis1 Kruk</h3>
-            <div class="flex items-center mt-1.5"><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-regular fa-star text-yellow-400 text-[9px]"></i><span class="text-[9px] text-gray-400 ml-1">(64)</span></div>
-            <div class="flex items-center justify-between mt-3">
-              <span class="text-base font-extrabold text-gray-900">€149</span>
-              <a href="javascript:void(0)" onclick="openOfferte('Interstuhl Upis1 Kruk')" class="bg-[#E8811A] text-white text-[11px] font-semibold py-1.5 px-3.5 rounded-full hover:bg-[#D07316] transition-colors">Offerte</a>
             </div>
           </div>
         </div>
