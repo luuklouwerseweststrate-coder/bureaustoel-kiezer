@@ -3,16 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bureaustoelen voor kantoor | Advies op maat | Weststrate Kantoormeubelen</title>
-  <meta name="description" content="Op zoek naar de juiste bureaustoel voor uw kantoor? Persoonlijk advies, scherpe prijzen en gratis bezorging. Vraag vandaag nog een vrijblijvende offerte aan." />
+  <title>Bureaustoelen op maat | Persoonlijk advies | Weststrate</title>
+  <meta name="description" content="Op zoek naar een goede bureaustoel? Persoonlijk advies van onze specialist Luuk. Gratis bezorging, 30 dagen proberen. Vraag een vrijblijvende offerte aan." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://bureaustoelkiezen.nl" />
 
-  <!-- Open Graph for Facebook/Instagram ads -->
-  <meta property="og:title" content="De juiste bureaustoel voor uw kantoor | Vraag een offerte aan" />
-  <meta property="og:description" content="Persoonlijk advies van onze specialist. Scherpe prijzen, gratis bezorging en NEN-gecertificeerde bureaustoelen." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="De juiste bureaustoel voor uw kantoor — Weststrate" />
+  <meta property="og:description" content="Persoonlijk advies, scherpe prijzen en gratis bezorging. Vraag vandaag nog een offerte aan." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://bureaustoelkiezen.nl" />
   <meta property="og:locale" content="nl_NL" />
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -26,8 +24,7 @@
         extend: {
           fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
           colors: {
-            primary: { 50: '#f0f4ff', 100: '#dbe4ff', 200: '#bac8ff', 300: '#91a7ff', 400: '#748ffc', 500: '#4c6ef5', 600: '#4263eb', 700: '#3b5bdb', 800: '#364fc7', 900: '#2b4299' },
-            office: { 50: '#f8f9fa', 100: '#f1f3f5', 200: '#e9ecef', 300: '#dee2e6', 400: '#ced4da', 500: '#adb5bd', 600: '#868e96', 700: '#495057', 800: '#343a40', 900: '#212529' },
+            green: { 550: '#22a652' }
           }
         }
       }
@@ -36,511 +33,432 @@
   <style>
     * { scroll-behavior: smooth; }
     body { font-family: 'Inter', system-ui, sans-serif; }
-
-    /* Subtle reveal animation */
-    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-    /* Luuk widget bounce */
-    @keyframes subtle-bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-    }
-    .advice-widget { animation: subtle-bounce 3s ease-in-out infinite; }
-    .advice-widget:hover { animation: none; }
-
-    /* Tooltip fade */
-    .tooltip-bubble {
+    /* Luuk widget */
+    .advice-bubble {
       opacity: 0; transform: translateY(8px) scale(0.95);
-      transition: opacity 0.3s ease, transform 0.3s ease;
+      transition: opacity 0.25s ease, transform 0.25s ease;
       pointer-events: none;
     }
-    .tooltip-bubble.show {
+    .advice-bubble.show {
       opacity: 1; transform: translateY(0) scale(1);
       pointer-events: auto;
     }
 
-    /* Product card */
-    .product-card { transition: box-shadow 0.3s ease, transform 0.3s ease; }
-    .product-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-2px); }
-
-    /* Trust badge subtle pulse */
-    .trust-icon { transition: transform 0.2s ease; }
-    .trust-icon:hover { transform: scale(1.05); }
-
-    /* Schema.org structured data styling — hidden */
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    .product-card { transition: box-shadow 0.25s ease; }
+    .product-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
   </style>
 
-  <!-- Schema.org structured data for E-E-A-T -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Weststrate Kantoormeubelen",
     "description": "Specialist in ergonomische bureaustoelen voor kantoor en thuiswerken.",
-    "url": "https://bureaustoelkiezen.nl",
     "telephone": "+31118630000",
     "email": "luuk.louwerse@weststrate.nl",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "NL"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "347"
-    }
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "347" }
   }
   </script>
 </head>
-<body class="bg-white text-office-900">
+<body class="bg-white text-gray-800">
 
-  <!-- Top bar — trust signals -->
-  <div class="bg-office-800 text-white text-xs sm:text-sm">
-    <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between">
-      <div class="flex items-center space-x-4 sm:space-x-6">
-        <span class="flex items-center space-x-1"><i class="fa-solid fa-truck text-primary-300"></i><span class="hidden sm:inline">Gratis bezorging</span></span>
-        <span class="flex items-center space-x-1"><i class="fa-solid fa-shield-halved text-primary-300"></i><span class="hidden sm:inline">NEN-gecertificeerd</span></span>
-        <span class="flex items-center space-x-1"><i class="fa-solid fa-star text-yellow-400"></i><span>4.8/5 <span class="hidden sm:inline">— 347 reviews</span></span></span>
+  <!-- Top bar -->
+  <div class="bg-gray-900 text-white text-xs">
+    <div class="max-w-5xl mx-auto px-4 py-2 flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <span class="flex items-center space-x-1"><i class="fa-solid fa-truck text-green-400 text-[10px]"></i><span class="hidden sm:inline">Gratis bezorging</span></span>
+        <span class="flex items-center space-x-1"><i class="fa-solid fa-shield-halved text-green-400 text-[10px]"></i><span class="hidden sm:inline">NEN-gecertificeerd</span></span>
+        <span class="flex items-center space-x-1"><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><span>4.8/5</span></span>
       </div>
-      <a href="tel:+31118630000" class="flex items-center space-x-1 hover:text-primary-300 transition-colors">
-        <i class="fa-solid fa-phone text-xs"></i>
-        <span>0118‑630&nbsp;000</span>
+      <a href="tel:+31118630000" class="hover:text-green-400 transition-colors">
+        <i class="fa-solid fa-phone text-[10px] mr-1"></i>0118‑630 000
       </a>
     </div>
   </div>
 
-  <!-- Navigation -->
-  <header class="bg-white sticky top-0 z-40 border-b border-office-200">
-    <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-14 sm:h-16">
-      <a href="#" class="flex items-center space-x-2">
-        <div class="w-8 h-8 rounded-lg bg-primary-600 flex items-center justify-center">
-          <i class="fa-solid fa-chair text-white text-xs"></i>
-        </div>
-        <span class="text-base sm:text-lg font-bold text-office-900">Weststrate <span class="text-primary-600">Bureaustoelen</span></span>
-      </a>
-      <nav class="hidden md:flex items-center space-x-6">
-        <a href="#aanbod" class="text-sm font-medium text-office-700 hover:text-primary-600 transition-colors">Aanbod</a>
-        <a href="#waarom" class="text-sm font-medium text-office-700 hover:text-primary-600 transition-colors">Waarom wij</a>
-        <a href="#werkwijze" class="text-sm font-medium text-office-700 hover:text-primary-600 transition-colors">Werkwijze</a>
-        <a href="#reviews" class="text-sm font-medium text-office-700 hover:text-primary-600 transition-colors">Reviews</a>
+  <!-- Nav -->
+  <header class="bg-white sticky top-0 z-40 border-b border-gray-100">
+    <div class="max-w-5xl mx-auto px-4 flex items-center justify-between h-14">
+      <a href="#" class="text-base font-bold text-gray-900">Weststrate <span class="font-normal text-gray-400">|</span> <span class="font-semibold text-gray-600">Bureaustoelen</span></a>
+      <nav class="hidden md:flex items-center space-x-6 text-sm">
+        <a href="#aanbod" class="text-gray-600 hover:text-gray-900 transition-colors">Aanbod</a>
+        <a href="#over-ons" class="text-gray-600 hover:text-gray-900 transition-colors">Over ons</a>
+        <a href="#reviews" class="text-gray-600 hover:text-gray-900 transition-colors">Reviews</a>
+        <a href="#faq" class="text-gray-600 hover:text-gray-900 transition-colors">FAQ</a>
       </nav>
       <div class="flex items-center space-x-3">
-        <a href="#offerte" class="bg-primary-600 text-white font-semibold text-sm py-2 px-4 sm:px-5 rounded-lg hover:bg-primary-700 transition-colors">
-          Offerte aanvragen
-        </a>
-        <button class="md:hidden text-office-700 text-xl" onclick="document.getElementById('mobileNav').classList.toggle('hidden')">
-          <i class="fa-solid fa-bars"></i>
-        </button>
+        <a href="#offerte" class="bg-green-600 text-white text-sm font-semibold py-2 px-4 rounded-lg hover:bg-green-700 transition-colors">Offerte aanvragen</a>
+        <button class="md:hidden text-gray-600" onclick="document.getElementById('mobNav').classList.toggle('hidden')"><i class="fa-solid fa-bars"></i></button>
       </div>
     </div>
-    <!-- Mobile nav -->
-    <div id="mobileNav" class="hidden md:hidden border-t border-office-100 bg-white">
-      <div class="px-4 py-3 space-y-2">
-        <a href="#aanbod" class="block text-sm font-medium text-office-700 py-2" onclick="document.getElementById('mobileNav').classList.add('hidden')">Aanbod</a>
-        <a href="#waarom" class="block text-sm font-medium text-office-700 py-2" onclick="document.getElementById('mobileNav').classList.add('hidden')">Waarom wij</a>
-        <a href="#werkwijze" class="block text-sm font-medium text-office-700 py-2" onclick="document.getElementById('mobileNav').classList.add('hidden')">Werkwijze</a>
-        <a href="#reviews" class="block text-sm font-medium text-office-700 py-2" onclick="document.getElementById('mobileNav').classList.add('hidden')">Reviews</a>
-      </div>
+    <div id="mobNav" class="hidden md:hidden border-t border-gray-100 px-4 py-3 space-y-2 bg-white">
+      <a href="#aanbod" class="block text-sm text-gray-600 py-1.5" onclick="document.getElementById('mobNav').classList.add('hidden')">Aanbod</a>
+      <a href="#over-ons" class="block text-sm text-gray-600 py-1.5" onclick="document.getElementById('mobNav').classList.add('hidden')">Over ons</a>
+      <a href="#reviews" class="block text-sm text-gray-600 py-1.5" onclick="document.getElementById('mobNav').classList.add('hidden')">Reviews</a>
+      <a href="#faq" class="block text-sm text-gray-600 py-1.5" onclick="document.getElementById('mobNav').classList.add('hidden')">FAQ</a>
     </div>
   </header>
 
-  <!-- Hero — mobile-first, clean, offerte-driven -->
-  <section class="bg-office-50 border-b border-office-100">
-    <div class="max-w-6xl mx-auto px-4 py-10 sm:py-16 md:py-20">
+  <!-- Hero -->
+  <section class="bg-white">
+    <div class="max-w-5xl mx-auto px-4 py-10 sm:py-14 md:py-20">
       <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
         <div class="order-2 md:order-1">
-          <div class="inline-flex items-center space-x-2 bg-white border border-office-200 rounded-full px-3 py-1.5 mb-5">
-            <span class="w-2 h-2 rounded-full bg-green-500"></span>
-            <span class="text-xs font-medium text-office-600">Direct leverbaar uit voorraad</span>
-          </div>
-          <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-office-900 leading-tight mb-4">
-            De juiste bureaustoel voor uw kantoor
+          <p class="text-sm font-medium text-green-600 mb-3">Persoonlijk advies — gratis bezorging — 30 dagen proberen</p>
+          <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-snug mb-4">
+            Op zoek naar een goede bureaustoel?
           </h1>
-          <p class="text-base sm:text-lg text-office-600 mb-6 leading-relaxed">
-            Persoonlijk advies van onze specialist, scherpe prijzen en gratis bezorging door heel Nederland. Al meer dan 25 jaar uw partner in kantoormeubelen.
+          <p class="text-gray-500 mb-6 leading-relaxed">
+            Wij helpen u aan de juiste stoel. Met eerlijk advies, scherpe prijzen en service waar u op kunt rekenen. Al meer dan 25 jaar.
           </p>
-          <div class="flex flex-col sm:flex-row gap-3 mb-8">
-            <a href="#offerte" class="bg-primary-600 text-white font-semibold text-center py-3 px-6 rounded-lg hover:bg-primary-700 transition-colors text-sm sm:text-base">
-              <i class="fa-solid fa-file-lines mr-2"></i>Vrijblijvende offerte aanvragen
+          <div class="flex flex-col sm:flex-row gap-3 mb-6">
+            <a href="#offerte" class="bg-green-600 text-white font-semibold text-center py-3 px-5 rounded-lg hover:bg-green-700 transition-colors text-sm">
+              Vrijblijvende offerte aanvragen
             </a>
-            <a href="tel:+31118630000" class="border border-office-300 text-office-700 font-semibold text-center py-3 px-6 rounded-lg hover:bg-office-50 transition-colors text-sm sm:text-base">
-              <i class="fa-solid fa-phone mr-2"></i>Bel direct: 0118‑630 000
+            <a href="tel:+31118630000" class="border border-gray-200 text-gray-700 font-medium text-center py-3 px-5 rounded-lg hover:bg-gray-50 transition-colors text-sm">
+              <i class="fa-solid fa-phone mr-1.5 text-green-600 text-xs"></i>Bel 0118‑630 000
             </a>
           </div>
-          <!-- Trust indicators -->
-          <div class="flex flex-wrap items-center gap-4 text-xs text-office-500">
-            <span class="flex items-center space-x-1.5 trust-icon"><i class="fa-solid fa-check-circle text-green-500"></i><span>NEN-EN 1335</span></span>
-            <span class="flex items-center space-x-1.5 trust-icon"><i class="fa-solid fa-check-circle text-green-500"></i><span>Gratis montage</span></span>
-            <span class="flex items-center space-x-1.5 trust-icon"><i class="fa-solid fa-check-circle text-green-500"></i><span>30 dagen proefperiode</span></span>
-            <span class="flex items-center space-x-1.5 trust-icon"><i class="fa-solid fa-check-circle text-green-500"></i><span>Tot 12 jaar garantie</span></span>
+          <div class="flex items-center space-x-4 text-xs text-gray-400">
+            <span><i class="fa-solid fa-check text-green-500 mr-1"></i>NEN-EN 1335</span>
+            <span><i class="fa-solid fa-check text-green-500 mr-1"></i>Gratis montage</span>
+            <span><i class="fa-solid fa-check text-green-500 mr-1"></i>Tot 12 jaar garantie</span>
           </div>
         </div>
         <div class="order-1 md:order-2 flex justify-center">
-          <div class="bg-white rounded-2xl border border-office-200 p-6 sm:p-8 w-full max-w-sm shadow-sm">
-            <div class="aspect-square bg-office-100 rounded-xl flex items-center justify-center mb-4">
-              <i class="fa-solid fa-chair text-6xl sm:text-7xl text-office-300"></i>
+          <div class="bg-gray-50 rounded-2xl w-full max-w-xs p-8 text-center">
+            <div class="aspect-square bg-white rounded-xl flex items-center justify-center mb-4 border border-gray-100">
+              <i class="fa-solid fa-chair text-6xl text-gray-300"></i>
             </div>
-            <div class="text-center">
-              <p class="text-sm font-medium text-office-500 mb-1">Bureaustoelen vanaf</p>
-              <p class="text-3xl font-extrabold text-office-900">€149</p>
-              <p class="text-xs text-office-400 mt-1">Incl. BTW, gratis bezorgd</p>
-            </div>
+            <p class="text-xs text-gray-400 mb-1">Bureaustoelen vanaf</p>
+            <p class="text-3xl font-extrabold text-gray-900">€149</p>
+            <p class="text-xs text-gray-400 mt-1">incl. BTW · gratis bezorgd</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Social proof bar -->
-  <section class="bg-white border-b border-office-100 py-6">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-office-400">
-        <span class="text-sm font-semibold">Vertrouwd door:</span>
-        <span class="font-bold text-base text-office-500">Herman Miller</span>
-        <span class="font-bold text-base text-office-500">HAG</span>
-        <span class="font-bold text-base text-office-500">Giroflex</span>
-        <span class="font-bold text-base text-office-500">Interstuhl</span>
-        <span class="font-bold text-base text-office-500">Prosedia</span>
-        <span class="font-bold text-base text-office-500">Steelcase</span>
-      </div>
+  <!-- Merken -->
+  <section class="border-y border-gray-100 py-6 bg-white">
+    <div class="max-w-5xl mx-auto px-4 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-gray-300">
+      <span class="font-bold text-sm">Herman Miller</span>
+      <span class="font-bold text-sm">HAG</span>
+      <span class="font-bold text-sm">Giroflex</span>
+      <span class="font-bold text-sm">Interstuhl</span>
+      <span class="font-bold text-sm">Prosedia</span>
+      <span class="font-bold text-sm">Steelcase</span>
     </div>
   </section>
 
-  <!-- Product overview -->
-  <section id="aanbod" class="py-12 sm:py-16 md:py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-10 sm:mb-14 fade-up">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-office-900 mb-3">Ons aanbod bureaustoelen</h2>
-        <p class="text-base text-office-500 max-w-xl mx-auto">Van budget tot premium — elke stoel is geselecteerd op ergonomie, duurzaamheid en zitcomfort. Persoonlijk advies bij elke keuze.</p>
+  <!-- Stoelen -->
+  <section id="aanbod" class="bg-white py-12 sm:py-16">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="mb-10 fade-up">
+        <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900 mb-2">Ons aanbod</h2>
+        <p class="text-sm text-gray-500">Een greep uit onze collectie. Vraag een offerte aan voor de beste prijs.</p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
 
-        <!-- Product 1 -->
-        <div class="product-card bg-white rounded-xl border border-office-200 overflow-hidden">
-          <div class="relative">
-            <div class="aspect-[4/3] bg-office-50 flex items-center justify-center">
-              <i class="fa-solid fa-chair text-5xl text-office-300"></i>
-            </div>
-            <span class="absolute top-3 left-3 bg-green-600 text-white text-[10px] font-bold px-2.5 py-1 rounded">Bestseller</span>
+        <div class="product-card bg-white rounded-xl border border-gray-100 overflow-hidden fade-up">
+          <div class="relative aspect-square bg-gray-50 flex items-center justify-center">
+            <i class="fa-solid fa-chair text-4xl text-gray-200"></i>
+            <span class="absolute top-2 left-2 bg-green-600 text-white text-[9px] font-bold px-2 py-0.5 rounded">Bestseller</span>
           </div>
-          <div class="p-4">
-            <p class="text-xs font-semibold text-primary-600 uppercase tracking-wide">Herman Miller</p>
-            <h3 class="text-sm font-bold text-office-900 mt-1">Aeron Remastered</h3>
-            <div class="flex items-center space-x-1 mt-2">
-              <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
-              <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
-              <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
-              <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
-              <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
-              <span class="text-[10px] text-office-400">(324)</span>
+          <div class="p-3 sm:p-4">
+            <p class="text-[10px] font-semibold text-gray-400 uppercase">Herman Miller</p>
+            <h3 class="text-sm font-bold text-gray-900 mt-0.5 leading-tight">Aeron Remastered</h3>
+            <div class="flex items-center mt-1.5">
+              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
+              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
+              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
+              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
+              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
+              <span class="text-[9px] text-gray-400 ml-1">(324)</span>
             </div>
             <div class="flex items-center justify-between mt-3">
-              <span class="text-lg font-extrabold text-office-900">€1.490</span>
-              <a href="#offerte" class="bg-primary-600 text-white text-xs font-semibold py-2 px-3 rounded-lg hover:bg-primary-700 transition-colors">Offerte</a>
+              <span class="text-base font-extrabold text-gray-900">€1.490</span>
+              <a href="#offerte" class="bg-green-600 text-white text-[11px] font-semibold py-1.5 px-3 rounded-lg hover:bg-green-700 transition-colors">Offerte</a>
             </div>
           </div>
         </div>
 
-        <!-- Product 2 -->
-        <div class="product-card bg-white rounded-xl border border-office-200 overflow-hidden">
-          <div class="relative">
-            <div class="aspect-[4/3] bg-office-50 flex items-center justify-center">
-              <i class="fa-solid fa-chair text-5xl text-office-300"></i>
-            </div>
-            <span class="absolute top-3 left-3 bg-primary-600 text-white text-[10px] font-bold px-2.5 py-1 rounded">Populair</span>
+        <div class="product-card bg-white rounded-xl border border-gray-100 overflow-hidden fade-up">
+          <div class="relative aspect-square bg-gray-50 flex items-center justify-center">
+            <i class="fa-solid fa-chair text-4xl text-gray-200"></i>
+            <span class="absolute top-2 left-2 bg-gray-900 text-white text-[9px] font-bold px-2 py-0.5 rounded">Populair</span>
           </div>
-          <div class="p-4">
-            <p class="text-xs font-semibold text-primary-600 uppercase tracking-wide">HAG</p>
-            <h3 class="text-sm font-bold text-office-900 mt-1">Capisco 8106</h3>
-            <div class="flex items-center space-x-1 mt-2">
-              <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
-              <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
-              <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
-              <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
-              <i class="fa-solid fa-star-half-stroke text-yellow-400 text-[10px]"></i>
-              <span class="text-[10px] text-office-400">(189)</span>
+          <div class="p-3 sm:p-4">
+            <p class="text-[10px] font-semibold text-gray-400 uppercase">HAG</p>
+            <h3 class="text-sm font-bold text-gray-900 mt-0.5 leading-tight">Capisco 8106</h3>
+            <div class="flex items-center mt-1.5">
+              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
+              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
+              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
+              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
+              <i class="fa-solid fa-star-half-stroke text-yellow-400 text-[9px]"></i>
+              <span class="text-[9px] text-gray-400 ml-1">(189)</span>
             </div>
             <div class="flex items-center justify-between mt-3">
-              <span class="text-lg font-extrabold text-office-900">€999</span>
-              <a href="#offerte" class="bg-primary-600 text-white text-xs font-semibold py-2 px-3 rounded-lg hover:bg-primary-700 transition-colors">Offerte</a>
+              <span class="text-base font-extrabold text-gray-900">€999</span>
+              <a href="#offerte" class="bg-green-600 text-white text-[11px] font-semibold py-1.5 px-3 rounded-lg hover:bg-green-700 transition-colors">Offerte</a>
             </div>
           </div>
         </div>
 
-        <!-- Product 3 -->
-        <div class="product-card bg-white rounded-xl border border-office-200 overflow-hidden">
-          <div class="relative">
-            <div class="aspect-[4/3] bg-office-50 flex items-center justify-center">
-              <i class="fa-solid fa-chair text-5xl text-office-300"></i>
-            </div>
-            <span class="absolute top-3 left-3 bg-amber-500 text-white text-[10px] font-bold px-2.5 py-1 rounded">Beste prijs</span>
+        <div class="product-card bg-white rounded-xl border border-gray-100 overflow-hidden fade-up">
+          <div class="relative aspect-square bg-gray-50 flex items-center justify-center">
+            <i class="fa-solid fa-chair text-4xl text-gray-200"></i>
+            <span class="absolute top-2 left-2 bg-amber-500 text-white text-[9px] font-bold px-2 py-0.5 rounded">Aanbieding</span>
           </div>
-          <div class="p-4">
-            <p class="text-xs font-semibold text-primary-600 uppercase tracking-wide">Giroflex</p>
-            <h3 class="text-sm font-bold text-office-900 mt-1">Giroflex 64</h3>
-            <div class="flex items-center space-x-1 mt-2">
-              <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
-              <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
-              <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
-              <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
-              <i class="fa-regular fa-star text-yellow-400 text-[10px]"></i>
-              <span class="text-[10px] text-office-400">(256)</span>
+          <div class="p-3 sm:p-4">
+            <p class="text-[10px] font-semibold text-gray-400 uppercase">Giroflex</p>
+            <h3 class="text-sm font-bold text-gray-900 mt-0.5 leading-tight">Giroflex 64</h3>
+            <div class="flex items-center mt-1.5">
+              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
+              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
+              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
+              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
+              <i class="fa-regular fa-star text-yellow-400 text-[9px]"></i>
+              <span class="text-[9px] text-gray-400 ml-1">(256)</span>
             </div>
             <div class="flex items-center justify-between mt-3">
               <div>
-                <span class="text-xs text-office-400 line-through mr-1">€899</span>
-                <span class="text-lg font-extrabold text-office-900">€799</span>
+                <span class="text-[10px] text-gray-400 line-through mr-1">€899</span>
+                <span class="text-base font-extrabold text-gray-900">€799</span>
               </div>
-              <a href="#offerte" class="bg-primary-600 text-white text-xs font-semibold py-2 px-3 rounded-lg hover:bg-primary-700 transition-colors">Offerte</a>
+              <a href="#offerte" class="bg-green-600 text-white text-[11px] font-semibold py-1.5 px-3 rounded-lg hover:bg-green-700 transition-colors">Offerte</a>
             </div>
           </div>
         </div>
 
-        <!-- Product 4 -->
-        <div class="product-card bg-white rounded-xl border border-office-200 overflow-hidden">
-          <div class="relative">
-            <div class="aspect-[4/3] bg-office-50 flex items-center justify-center">
-              <i class="fa-solid fa-chair text-5xl text-office-300"></i>
-            </div>
-            <span class="absolute top-3 left-3 bg-cyan-600 text-white text-[10px] font-bold px-2.5 py-1 rounded">Nieuw 2026</span>
+        <div class="product-card bg-white rounded-xl border border-gray-100 overflow-hidden fade-up">
+          <div class="relative aspect-square bg-gray-50 flex items-center justify-center">
+            <i class="fa-solid fa-chair text-4xl text-gray-200"></i>
+            <span class="absolute top-2 left-2 bg-green-600 text-white text-[9px] font-bold px-2 py-0.5 rounded">Nieuw</span>
           </div>
-          <div class="p-4">
-            <p class="text-xs font-semibold text-primary-600 uppercase tracking-wide">Interstuhl</p>
-            <h3 class="text-sm font-bold text-office-900 mt-1">Every EV311</h3>
-            <div class="flex items-center space-x-1 mt-2">
-              <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
-              <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
-              <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
-              <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
-              <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
-              <span class="text-[10px] text-office-400">(98)</span>
+          <div class="p-3 sm:p-4">
+            <p class="text-[10px] font-semibold text-gray-400 uppercase">Interstuhl</p>
+            <h3 class="text-sm font-bold text-gray-900 mt-0.5 leading-tight">Every EV311</h3>
+            <div class="flex items-center mt-1.5">
+              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
+              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
+              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
+              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
+              <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i>
+              <span class="text-[9px] text-gray-400 ml-1">(98)</span>
             </div>
             <div class="flex items-center justify-between mt-3">
-              <span class="text-lg font-extrabold text-office-900">€569</span>
-              <a href="#offerte" class="bg-primary-600 text-white text-xs font-semibold py-2 px-3 rounded-lg hover:bg-primary-700 transition-colors">Offerte</a>
+              <span class="text-base font-extrabold text-gray-900">€569</span>
+              <a href="#offerte" class="bg-green-600 text-white text-[11px] font-semibold py-1.5 px-3 rounded-lg hover:bg-green-700 transition-colors">Offerte</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card bg-white rounded-xl border border-gray-100 overflow-hidden fade-up">
+          <div class="aspect-square bg-gray-50 flex items-center justify-center"><i class="fa-solid fa-chair text-4xl text-gray-200"></i></div>
+          <div class="p-3 sm:p-4">
+            <p class="text-[10px] font-semibold text-gray-400 uppercase">Giroflex</p>
+            <h3 class="text-sm font-bold text-gray-900 mt-0.5 leading-tight">Giroflex 313</h3>
+            <div class="flex items-center mt-1.5"><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-regular fa-star text-yellow-400 text-[9px]"></i><span class="text-[9px] text-gray-400 ml-1">(142)</span></div>
+            <div class="flex items-center justify-between mt-3">
+              <span class="text-base font-extrabold text-gray-900">€649</span>
+              <a href="#offerte" class="bg-green-600 text-white text-[11px] font-semibold py-1.5 px-3 rounded-lg hover:bg-green-700 transition-colors">Offerte</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card bg-white rounded-xl border border-gray-100 overflow-hidden fade-up">
+          <div class="aspect-square bg-gray-50 flex items-center justify-center"><i class="fa-solid fa-chair text-4xl text-gray-200"></i></div>
+          <div class="p-3 sm:p-4">
+            <p class="text-[10px] font-semibold text-gray-400 uppercase">Prosedia</p>
+            <h3 class="text-sm font-bold text-gray-900 mt-0.5 leading-tight">Yourope 132</h3>
+            <div class="flex items-center mt-1.5"><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-regular fa-star text-yellow-400 text-[9px]"></i><span class="text-[9px] text-gray-400 ml-1">(203)</span></div>
+            <div class="flex items-center justify-between mt-3">
+              <span class="text-base font-extrabold text-gray-900">€279</span>
+              <a href="#offerte" class="bg-green-600 text-white text-[11px] font-semibold py-1.5 px-3 rounded-lg hover:bg-green-700 transition-colors">Offerte</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card bg-white rounded-xl border border-gray-100 overflow-hidden fade-up">
+          <div class="aspect-square bg-gray-50 flex items-center justify-center"><i class="fa-solid fa-chair text-4xl text-gray-200"></i></div>
+          <div class="p-3 sm:p-4">
+            <p class="text-[10px] font-semibold text-gray-400 uppercase">Prosedia</p>
+            <h3 class="text-sm font-bold text-gray-900 mt-0.5 leading-tight">Bureaustoel 103</h3>
+            <div class="flex items-center mt-1.5"><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-regular fa-star text-yellow-400 text-[9px]"></i><span class="text-[9px] text-gray-400 ml-1">(87)</span></div>
+            <div class="flex items-center justify-between mt-3">
+              <span class="text-base font-extrabold text-gray-900">€329</span>
+              <a href="#offerte" class="bg-green-600 text-white text-[11px] font-semibold py-1.5 px-3 rounded-lg hover:bg-green-700 transition-colors">Offerte</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card bg-white rounded-xl border border-gray-100 overflow-hidden fade-up">
+          <div class="aspect-square bg-gray-50 flex items-center justify-center"><i class="fa-solid fa-chair text-4xl text-gray-200"></i></div>
+          <div class="p-3 sm:p-4">
+            <p class="text-[10px] font-semibold text-gray-400 uppercase">Interstuhl</p>
+            <h3 class="text-sm font-bold text-gray-900 mt-0.5 leading-tight">Upis1 Kruk</h3>
+            <div class="flex items-center mt-1.5"><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-regular fa-star text-yellow-400 text-[9px]"></i><span class="text-[9px] text-gray-400 ml-1">(64)</span></div>
+            <div class="flex items-center justify-between mt-3">
+              <span class="text-base font-extrabold text-gray-900">€149</span>
+              <a href="#offerte" class="bg-green-600 text-white text-[11px] font-semibold py-1.5 px-3 rounded-lg hover:bg-green-700 transition-colors">Offerte</a>
             </div>
           </div>
         </div>
 
       </div>
 
-      <!-- Second row -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mt-5 sm:mt-6">
-        <div class="product-card bg-white rounded-xl border border-office-200 overflow-hidden">
-          <div class="aspect-[4/3] bg-office-50 flex items-center justify-center"><i class="fa-solid fa-chair text-5xl text-office-300"></i></div>
-          <div class="p-4">
-            <p class="text-xs font-semibold text-primary-600 uppercase tracking-wide">Giroflex</p>
-            <h3 class="text-sm font-bold text-office-900 mt-1">Giroflex 313</h3>
-            <div class="flex items-center space-x-1 mt-2"><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-regular fa-star text-yellow-400 text-[10px]"></i><span class="text-[10px] text-office-400">(142)</span></div>
-            <div class="flex items-center justify-between mt-3">
-              <span class="text-lg font-extrabold text-office-900">€649</span>
-              <a href="#offerte" class="bg-primary-600 text-white text-xs font-semibold py-2 px-3 rounded-lg hover:bg-primary-700 transition-colors">Offerte</a>
-            </div>
-          </div>
-        </div>
-        <div class="product-card bg-white rounded-xl border border-office-200 overflow-hidden">
-          <div class="aspect-[4/3] bg-office-50 flex items-center justify-center"><i class="fa-solid fa-chair text-5xl text-office-300"></i></div>
-          <div class="p-4">
-            <p class="text-xs font-semibold text-primary-600 uppercase tracking-wide">Prosedia</p>
-            <h3 class="text-sm font-bold text-office-900 mt-1">Yourope 132</h3>
-            <div class="flex items-center space-x-1 mt-2"><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-regular fa-star text-yellow-400 text-[10px]"></i><span class="text-[10px] text-office-400">(203)</span></div>
-            <div class="flex items-center justify-between mt-3">
-              <span class="text-lg font-extrabold text-office-900">€279</span>
-              <a href="#offerte" class="bg-primary-600 text-white text-xs font-semibold py-2 px-3 rounded-lg hover:bg-primary-700 transition-colors">Offerte</a>
-            </div>
-          </div>
-        </div>
-        <div class="product-card bg-white rounded-xl border border-office-200 overflow-hidden">
-          <div class="aspect-[4/3] bg-office-50 flex items-center justify-center"><i class="fa-solid fa-chair text-5xl text-office-300"></i></div>
-          <div class="p-4">
-            <p class="text-xs font-semibold text-primary-600 uppercase tracking-wide">Prosedia</p>
-            <h3 class="text-sm font-bold text-office-900 mt-1">Bureaustoel 103</h3>
-            <div class="flex items-center space-x-1 mt-2"><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-regular fa-star text-yellow-400 text-[10px]"></i><span class="text-[10px] text-office-400">(87)</span></div>
-            <div class="flex items-center justify-between mt-3">
-              <span class="text-lg font-extrabold text-office-900">€329</span>
-              <a href="#offerte" class="bg-primary-600 text-white text-xs font-semibold py-2 px-3 rounded-lg hover:bg-primary-700 transition-colors">Offerte</a>
-            </div>
-          </div>
-        </div>
-        <div class="product-card bg-white rounded-xl border border-office-200 overflow-hidden">
-          <div class="aspect-[4/3] bg-office-50 flex items-center justify-center"><i class="fa-solid fa-chair text-5xl text-office-300"></i></div>
-          <div class="p-4">
-            <p class="text-xs font-semibold text-primary-600 uppercase tracking-wide">Interstuhl</p>
-            <h3 class="text-sm font-bold text-office-900 mt-1">Upis1 Kruk</h3>
-            <div class="flex items-center space-x-1 mt-2"><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-regular fa-star text-yellow-400 text-[10px]"></i><span class="text-[10px] text-office-400">(64)</span></div>
-            <div class="flex items-center justify-between mt-3">
-              <span class="text-lg font-extrabold text-office-900">€149</span>
-              <a href="#offerte" class="bg-primary-600 text-white text-xs font-semibold py-2 px-3 rounded-lg hover:bg-primary-700 transition-colors">Offerte</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center mt-10">
-        <a href="#offerte" class="inline-flex items-center space-x-2 bg-primary-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-primary-700 transition-colors">
-          <i class="fa-solid fa-file-lines"></i>
-          <span>Offerte aanvragen voor meerdere stoelen</span>
+      <div class="text-center mt-8 fade-up">
+        <p class="text-sm text-gray-500 mb-3">Niet gevonden wat u zoekt? Wij hebben meer dan 50 modellen beschikbaar.</p>
+        <a href="#offerte" class="inline-block bg-green-600 text-white font-semibold text-sm py-2.5 px-5 rounded-lg hover:bg-green-700 transition-colors">
+          Vraag advies op maat
         </a>
-        <p class="text-xs text-office-400 mt-2">Zakelijke korting bij afname vanaf 5 stuks</p>
       </div>
     </div>
   </section>
 
-  <!-- USPs / Waarom wij -->
-  <section id="waarom" class="py-12 sm:py-16 md:py-20 bg-office-50 border-y border-office-100">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-10 sm:mb-14 fade-up">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-office-900 mb-3">Waarom klanten voor ons kiezen</h2>
-        <p class="text-base text-office-500 max-w-xl mx-auto">Al meer dan 25 jaar helpen wij bedrijven en thuiswerkers aan de juiste bureaustoel. Met persoonlijk advies en service waar u op kunt rekenen.</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white rounded-xl p-6 border border-office-200 fade-up">
-          <div class="w-11 h-11 rounded-lg bg-primary-50 flex items-center justify-center mb-4">
-            <i class="fa-solid fa-user-tie text-primary-600"></i>
+  <!-- Waarom wij -->
+  <section class="bg-gray-50 border-y border-gray-100 py-12 sm:py-16">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900 mb-8 text-center fade-up">Waarom klanten voor ons kiezen</h2>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div class="bg-white rounded-xl p-5 border border-gray-100 text-center fade-up">
+          <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-3">
+            <i class="fa-solid fa-user text-green-600 text-sm"></i>
           </div>
-          <h3 class="text-base font-bold text-office-900 mb-2">Persoonlijk advies</h3>
-          <p class="text-sm text-office-500 leading-relaxed">Onze specialist Luuk denkt met u mee. Over ergonomie, budget en de juiste keuze voor uw situatie.</p>
+          <h3 class="text-sm font-bold text-gray-900 mb-1">Persoonlijk advies</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">Luuk denkt met u mee over de juiste stoel voor uw situatie.</p>
         </div>
-        <div class="bg-white rounded-xl p-6 border border-office-200 fade-up">
-          <div class="w-11 h-11 rounded-lg bg-green-50 flex items-center justify-center mb-4">
-            <i class="fa-solid fa-certificate text-green-600"></i>
+        <div class="bg-white rounded-xl p-5 border border-gray-100 text-center fade-up">
+          <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-3">
+            <i class="fa-solid fa-truck text-green-600 text-sm"></i>
           </div>
-          <h3 class="text-base font-bold text-office-900 mb-2">NEN-gecertificeerd</h3>
-          <p class="text-sm text-office-500 leading-relaxed">Alle stoelen voldoen aan NEN-EN 1335 en NPR 1813. Essentieel voor uw Arbo-verantwoording.</p>
+          <h3 class="text-sm font-bold text-gray-900 mb-1">Gratis bezorgd</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">Incl. montage op locatie. Door heel Nederland.</p>
         </div>
-        <div class="bg-white rounded-xl p-6 border border-office-200 fade-up">
-          <div class="w-11 h-11 rounded-lg bg-amber-50 flex items-center justify-center mb-4">
-            <i class="fa-solid fa-hand-holding-dollar text-amber-600"></i>
+        <div class="bg-white rounded-xl p-5 border border-gray-100 text-center fade-up">
+          <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-3">
+            <i class="fa-solid fa-rotate-left text-green-600 text-sm"></i>
           </div>
-          <h3 class="text-base font-bold text-office-900 mb-2">Scherpe prijzen</h3>
-          <p class="text-sm text-office-500 leading-relaxed">Rechtstreeks van de fabrikant. Zonder tussenhandel, zodat u altijd de beste prijs krijgt.</p>
+          <h3 class="text-sm font-bold text-gray-900 mb-1">30 dagen proberen</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">Niet tevreden? Wij halen de stoel kosteloos op.</p>
         </div>
-        <div class="bg-white rounded-xl p-6 border border-office-200 fade-up">
-          <div class="w-11 h-11 rounded-lg bg-blue-50 flex items-center justify-center mb-4">
-            <i class="fa-solid fa-truck text-blue-600"></i>
+        <div class="bg-white rounded-xl p-5 border border-gray-100 text-center fade-up">
+          <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-3">
+            <i class="fa-solid fa-shield-halved text-green-600 text-sm"></i>
           </div>
-          <h3 class="text-base font-bold text-office-900 mb-2">Gratis bezorging & montage</h3>
-          <p class="text-sm text-office-500 leading-relaxed">Wij bezorgen en monteren de stoel op locatie. Door heel Nederland, zonder extra kosten.</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 border border-office-200 fade-up">
-          <div class="w-11 h-11 rounded-lg bg-purple-50 flex items-center justify-center mb-4">
-            <i class="fa-solid fa-rotate-left text-purple-600"></i>
-          </div>
-          <h3 class="text-base font-bold text-office-900 mb-2">30 dagen proefperiode</h3>
-          <p class="text-sm text-office-500 leading-relaxed">Niet tevreden? Wij halen de stoel kosteloos op. Zonder vragen, zonder risico.</p>
-        </div>
-        <div class="bg-white rounded-xl p-6 border border-office-200 fade-up">
-          <div class="w-11 h-11 rounded-lg bg-rose-50 flex items-center justify-center mb-4">
-            <i class="fa-solid fa-shield-halved text-rose-600"></i>
-          </div>
-          <h3 class="text-base font-bold text-office-900 mb-2">Tot 12 jaar garantie</h3>
-          <p class="text-sm text-office-500 leading-relaxed">Fabrieksgarantie op alle onderdelen. Wij staan achter de kwaliteit van onze stoelen.</p>
+          <h3 class="text-sm font-bold text-gray-900 mb-1">Tot 12 jaar garantie</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">Fabrieksgarantie op alle onderdelen.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Werkwijze / How it works -->
-  <section id="werkwijze" class="py-12 sm:py-16 md:py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-10 sm:mb-14 fade-up">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-office-900 mb-3">Hoe werkt het?</h2>
-        <p class="text-base text-office-500 max-w-xl mx-auto">In drie eenvoudige stappen naar de juiste bureaustoel.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
-        <div class="text-center fade-up">
-          <div class="w-14 h-14 rounded-full bg-primary-600 text-white flex items-center justify-center mx-auto mb-5 text-xl font-bold">1</div>
-          <h3 class="text-base font-bold text-office-900 mb-2">Offerte aanvragen</h3>
-          <p class="text-sm text-office-500">Vul het formulier in of bel ons. Vertel ons wat u zoekt en voor hoeveel werkplekken.</p>
+  <!-- Over ons / Expertise -->
+  <section id="over-ons" class="bg-white py-12 sm:py-16">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="grid md:grid-cols-5 gap-8 items-center fade-up">
+        <div class="md:col-span-3">
+          <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900 mb-3">Al 25+ jaar specialist in bureaustoelen</h2>
+          <p class="text-sm text-gray-500 leading-relaxed mb-4">
+            Weststrate Kantoormeubelen helpt bedrijven en thuiswerkers aan de juiste werkplek. Wij werken uitsluitend met A-merken en NEN-gecertificeerde producten. Geen verkooppraatjes, maar eerlijk advies.
+          </p>
+          <p class="text-sm text-gray-500 leading-relaxed mb-6">
+            Of u nu 1 stoel voor thuis zoekt of 100 werkplekken wilt inrichten — onze specialist Luuk helpt u graag. Persoonlijk, deskundig en altijd met oog voor uw budget.
+          </p>
+          <div class="flex items-center space-x-8 text-center">
+            <div>
+              <p class="text-2xl font-extrabold text-gray-900">25+</p>
+              <p class="text-[10px] text-gray-400">jaar ervaring</p>
+            </div>
+            <div>
+              <p class="text-2xl font-extrabold text-gray-900">3.200+</p>
+              <p class="text-[10px] text-gray-400">werkplekken</p>
+            </div>
+            <div>
+              <p class="text-2xl font-extrabold text-gray-900">4.8/5</p>
+              <p class="text-[10px] text-gray-400">klantscore</p>
+            </div>
+          </div>
         </div>
-        <div class="text-center fade-up">
-          <div class="w-14 h-14 rounded-full bg-primary-600 text-white flex items-center justify-center mx-auto mb-5 text-xl font-bold">2</div>
-          <h3 class="text-base font-bold text-office-900 mb-2">Persoonlijk advies</h3>
-          <p class="text-sm text-office-500">Luuk neemt contact op, bespreekt uw wensen en stelt een passend voorstel samen.</p>
-        </div>
-        <div class="text-center fade-up">
-          <div class="w-14 h-14 rounded-full bg-primary-600 text-white flex items-center justify-center mx-auto mb-5 text-xl font-bold">3</div>
-          <h3 class="text-base font-bold text-office-900 mb-2">Bezorgd & gemonteerd</h3>
-          <p class="text-sm text-office-500">Uw stoelen worden gratis bezorgd en gemonteerd. 30 dagen proefperiode inbegrepen.</p>
+        <div class="md:col-span-2 flex justify-center">
+          <div class="bg-gray-50 rounded-xl border border-gray-100 p-6 max-w-[240px] w-full text-center">
+            <div class="w-20 h-20 rounded-full bg-gray-200 mx-auto mb-3 overflow-hidden flex items-center justify-center">
+              <img src="luuk.jpg" alt="Luuk Louwerse" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fa-solid fa-user text-2xl text-gray-400\'></i>'">
+            </div>
+            <h3 class="text-sm font-bold text-gray-900">Luuk Louwerse</h3>
+            <p class="text-xs text-gray-400 mt-0.5">Specialist Bureaustoelen</p>
+            <p class="text-xs text-gray-500 mt-2 leading-relaxed">Persoonlijk advies over stoelen, ergonomie en werkplekken.</p>
+            <a href="mailto:luuk.louwerse@weststrate.nl?subject=Advies%20bureaustoelen" class="inline-flex items-center space-x-1.5 bg-green-600 text-white text-xs font-semibold py-2 px-4 rounded-lg hover:bg-green-700 transition-colors mt-3">
+              <i class="fa-solid fa-envelope text-[10px]"></i>
+              <span>Mail Luuk</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Reviews -->
-  <section id="reviews" class="py-12 sm:py-16 md:py-20 bg-office-50 border-y border-office-100">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-10 sm:mb-14 fade-up">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-office-900 mb-3">Wat klanten zeggen</h2>
-        <div class="flex items-center justify-center space-x-2 mt-3">
-          <div class="flex">
-            <i class="fa-solid fa-star text-yellow-400"></i>
-            <i class="fa-solid fa-star text-yellow-400"></i>
-            <i class="fa-solid fa-star text-yellow-400"></i>
-            <i class="fa-solid fa-star text-yellow-400"></i>
-            <i class="fa-solid fa-star text-yellow-400"></i>
-          </div>
-          <span class="font-bold text-office-900">4.8/5</span>
-          <span class="text-sm text-office-400">— 347 beoordelingen</span>
+  <section id="reviews" class="bg-gray-50 border-y border-gray-100 py-12 sm:py-16">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-8 fade-up">
+        <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900 mb-2">Wat klanten zeggen</h2>
+        <div class="flex items-center justify-center space-x-1.5 mt-2">
+          <i class="fa-solid fa-star text-yellow-400 text-sm"></i>
+          <i class="fa-solid fa-star text-yellow-400 text-sm"></i>
+          <i class="fa-solid fa-star text-yellow-400 text-sm"></i>
+          <i class="fa-solid fa-star text-yellow-400 text-sm"></i>
+          <i class="fa-solid fa-star text-yellow-400 text-sm"></i>
+          <span class="text-sm font-bold text-gray-900 ml-1">4.8/5</span>
+          <span class="text-xs text-gray-400">— 347 reviews</span>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-xl p-6 border border-office-200 fade-up">
-          <div class="flex items-center space-x-1 mb-3">
-            <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
-            <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
-            <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
-            <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
-            <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+        <div class="bg-white rounded-xl p-5 border border-gray-100 fade-up">
+          <div class="flex items-center space-x-0.5 mb-2">
+            <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
           </div>
-          <p class="text-sm text-office-600 leading-relaxed mb-4">"Luuk heeft ons uitstekend geholpen bij het inrichten van 25 werkplekken. Persoonlijk advies, scherpe prijs en alles netjes gemonteerd. Zeer professioneel."</p>
-          <div class="flex items-center space-x-3">
-            <div class="w-9 h-9 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 font-bold text-xs">MV</div>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">"Luuk heeft ons geholpen met 25 werkplekken. Persoonlijk advies, scherpe prijs en alles netjes op locatie gemonteerd. Heel professioneel."</p>
+          <div class="flex items-center space-x-2">
+            <div class="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 text-[10px] font-bold">MV</div>
             <div>
-              <p class="text-sm font-semibold text-office-900">Marco Visser</p>
-              <p class="text-xs text-office-400">Facility Manager, Rotterdam</p>
+              <p class="text-xs font-semibold text-gray-900">Marco Visser</p>
+              <p class="text-[10px] text-gray-400">Facility Manager</p>
             </div>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl p-6 border border-office-200 fade-up">
-          <div class="flex items-center space-x-1 mb-3">
-            <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
-            <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
-            <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
-            <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
-            <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
+        <div class="bg-white rounded-xl p-5 border border-gray-100 fade-up">
+          <div class="flex items-center space-x-0.5 mb-2">
+            <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
           </div>
-          <p class="text-sm text-office-600 leading-relaxed mb-4">"Eindelijk geen rugklachten meer. De HAG Capisco is precies wat ik nodig had. Het adviesgesprek met Luuk was erg waardevol, hij weet echt waar hij over praat."</p>
-          <div class="flex items-center space-x-3">
-            <div class="w-9 h-9 rounded-full bg-green-100 flex items-center justify-center text-green-700 font-bold text-xs">SB</div>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">"Eindelijk geen rugklachten meer. Het adviesgesprek met Luuk was erg waardevol, hij weet echt waar hij het over heeft. Aanrader!"</p>
+          <div class="flex items-center space-x-2">
+            <div class="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 text-[10px] font-bold">SB</div>
             <div>
-              <p class="text-sm font-semibold text-office-900">Sandra de Boer</p>
-              <p class="text-xs text-office-400">Accountant, Den Haag</p>
+              <p class="text-xs font-semibold text-gray-900">Sandra de Boer</p>
+              <p class="text-[10px] text-gray-400">Accountant</p>
             </div>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl p-6 border border-office-200 fade-up">
-          <div class="flex items-center space-x-1 mb-3">
-            <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
-            <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
-            <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
-            <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
-            <i class="fa-solid fa-star text-yellow-400 text-xs"></i>
+        <div class="bg-white rounded-xl p-5 border border-gray-100 fade-up">
+          <div class="flex items-center space-x-0.5 mb-2">
+            <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i><i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
           </div>
-          <p class="text-sm text-office-600 leading-relaxed mb-4">"Als startup hadden we een beperkt budget. Luuk heeft stoelen voorgesteld die passen bij ons budget zonder in te leveren op kwaliteit. Top service!"</p>
-          <div class="flex items-center space-x-3">
-            <div class="w-9 h-9 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 font-bold text-xs">JP</div>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3">"Als startup hadden we beperkt budget. Luuk stelde stoelen voor die passen bij ons budget zonder in te leveren op kwaliteit. Top service!"</p>
+          <div class="flex items-center space-x-2">
+            <div class="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 text-[10px] font-bold">JP</div>
             <div>
-              <p class="text-sm font-semibold text-office-900">Jasper Pietersen</p>
-              <p class="text-xs text-office-400">Oprichter, Utrecht</p>
+              <p class="text-xs font-semibold text-gray-900">Jasper Pietersen</p>
+              <p class="text-[10px] text-gray-400">Oprichter startup</p>
             </div>
           </div>
         </div>
@@ -548,87 +466,63 @@
     </div>
   </section>
 
-  <!-- Expertise / E-E-A-T block -->
-  <section class="py-12 sm:py-16 md:py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="bg-office-50 rounded-2xl border border-office-200 p-6 sm:p-10 md:p-12 fade-up">
-        <div class="grid md:grid-cols-2 gap-8 items-center">
-          <div>
-            <span class="inline-block bg-primary-100 text-primary-700 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide mb-4">Over ons</span>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-office-900 mb-4">25+ jaar expertise in kantoormeubelen</h2>
-            <p class="text-sm sm:text-base text-office-500 leading-relaxed mb-4">
-              Weststrate Kantoormeubelen is al meer dan 25 jaar specialist in ergonomische werkplekoplossingen. Wij werken uitsluitend met A-merken en gecertificeerde producten.
-            </p>
-            <p class="text-sm sm:text-base text-office-500 leading-relaxed mb-6">
-              Onze adviseurs zijn opgeleid in ergonomie en helpen u bij het maken van de juiste keuze. Of het nu gaat om 1 thuiswerkplek of 500 kantoorplekken — wij denken met u mee.
-            </p>
-            <div class="grid grid-cols-3 gap-4">
-              <div class="text-center">
-                <p class="text-2xl font-extrabold text-office-900">25+</p>
-                <p class="text-xs text-office-400">Jaar ervaring</p>
-              </div>
-              <div class="text-center">
-                <p class="text-2xl font-extrabold text-office-900">3.200+</p>
-                <p class="text-xs text-office-400">Werkplekken ingericht</p>
-              </div>
-              <div class="text-center">
-                <p class="text-2xl font-extrabold text-office-900">4.8/5</p>
-                <p class="text-xs text-office-400">Klantscore</p>
-              </div>
-            </div>
-          </div>
-          <div class="flex justify-center">
-            <div class="bg-white rounded-xl border border-office-200 p-6 max-w-xs w-full text-center shadow-sm">
-              <div class="w-24 h-24 rounded-full bg-office-100 mx-auto mb-4 overflow-hidden flex items-center justify-center">
-                <img src="luuk.jpg" alt="Luuk Louwerse — Specialist Bureaustoelen bij Weststrate" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fa-solid fa-user text-3xl text-office-400\'></i>'">
-              </div>
-              <h3 class="text-base font-bold text-office-900">Luuk Louwerse</h3>
-              <p class="text-xs text-primary-600 font-medium mt-0.5">Specialist Bureaustoelen</p>
-              <p class="text-xs text-office-400 mt-2 leading-relaxed">Persoonlijk advies over ergonomie, stoelen en werkplekoplossingen.</p>
-              <a href="mailto:luuk.louwerse@weststrate.nl?subject=Advies%20bureaustoelen&body=Beste%20Luuk%2C%0A%0AIk%20zou%20graag%20advies%20ontvangen%20over%20bureaustoelen.%0A%0AMet%20vriendelijke%20groet" class="inline-flex items-center space-x-2 bg-primary-600 text-white text-xs font-semibold py-2.5 px-4 rounded-lg hover:bg-primary-700 transition-colors mt-4">
-                <i class="fa-solid fa-envelope"></i>
-                <span>Mail Luuk direct</span>
-              </a>
-            </div>
-          </div>
+  <!-- Werkwijze -->
+  <section class="bg-white py-12 sm:py-16">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900 mb-8 text-center fade-up">Hoe het werkt</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-up">
+        <div class="text-center">
+          <div class="w-10 h-10 rounded-full bg-gray-900 text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">1</div>
+          <h3 class="text-sm font-bold text-gray-900 mb-1">Offerte aanvragen</h3>
+          <p class="text-xs text-gray-500">Vul het formulier in of bel ons. Vertel wat u zoekt.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-10 h-10 rounded-full bg-gray-900 text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">2</div>
+          <h3 class="text-sm font-bold text-gray-900 mb-1">Advies van Luuk</h3>
+          <p class="text-xs text-gray-500">Luuk neemt contact op en stelt een voorstel op maat samen.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-10 h-10 rounded-full bg-gray-900 text-white flex items-center justify-center mx-auto mb-3 text-sm font-bold">3</div>
+          <h3 class="text-sm font-bold text-gray-900 mb-1">Bezorgd & gemonteerd</h3>
+          <p class="text-xs text-gray-500">Gratis bezorgd en gemonteerd. 30 dagen proefperiode.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Offerte form -->
-  <section id="offerte" class="py-12 sm:py-16 md:py-20 bg-primary-600">
-    <div class="max-w-3xl mx-auto px-4">
-      <div class="text-center mb-8 sm:mb-10 fade-up">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">Vrijblijvende offerte aanvragen</h2>
-        <p class="text-base text-primary-100">Vul het formulier in en ontvang binnen 24 uur een offerte op maat van Luuk.</p>
+  <!-- Offerte -->
+  <section id="offerte" class="bg-gray-900 py-12 sm:py-16">
+    <div class="max-w-xl mx-auto px-4">
+      <div class="text-center mb-8 fade-up">
+        <h2 class="text-xl sm:text-2xl font-extrabold text-white mb-2">Vrijblijvende offerte aanvragen</h2>
+        <p class="text-sm text-gray-400">Vul het formulier in en Luuk neemt binnen 24 uur contact op.</p>
       </div>
 
-      <form class="bg-white rounded-2xl p-6 sm:p-8 shadow-lg fade-up" onsubmit="event.preventDefault(); window.location.href='mailto:luuk.louwerse@weststrate.nl?subject=Offerte%20aanvraag%20bureaustoelen&body=Naam:%20' + encodeURIComponent(this.naam.value) + '%0ABedrijf:%20' + encodeURIComponent(this.bedrijf.value) + '%0AE-mail:%20' + encodeURIComponent(this.email.value) + '%0ATelefoon:%20' + encodeURIComponent(this.telefoon.value) + '%0AAantal%20stoelen:%20' + encodeURIComponent(this.aantal.value) + '%0ABudget:%20' + encodeURIComponent(this.budget.value) + '%0ABericht:%20' + encodeURIComponent(this.bericht.value);">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+      <form class="bg-white rounded-xl p-5 sm:p-6 fade-up" onsubmit="event.preventDefault(); window.location.href='mailto:luuk.louwerse@weststrate.nl?subject=Offerte%20bureaustoelen&body=Naam:%20' + encodeURIComponent(this.naam.value) + '%0ABedrijf:%20' + encodeURIComponent(this.bedrijf.value) + '%0AE-mail:%20' + encodeURIComponent(this.email.value) + '%0ATelefoon:%20' + encodeURIComponent(this.telefoon.value) + '%0AAantal:%20' + encodeURIComponent(this.aantal.value) + '%0ABudget:%20' + encodeURIComponent(this.budget.value) + '%0ABericht:%20' + encodeURIComponent(this.bericht.value);">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
           <div>
-            <label class="block text-sm font-semibold text-office-700 mb-1.5">Naam *</label>
-            <input type="text" name="naam" required placeholder="Uw volledige naam" class="w-full px-3.5 py-2.5 rounded-lg border border-office-300 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none text-sm">
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Naam *</label>
+            <input type="text" name="naam" required placeholder="Uw naam" class="w-full px-3 py-2.5 rounded-lg border border-gray-200 focus:border-green-500 focus:ring-1 focus:ring-green-500 outline-none text-sm">
           </div>
           <div>
-            <label class="block text-sm font-semibold text-office-700 mb-1.5">Bedrijf</label>
-            <input type="text" name="bedrijf" placeholder="Bedrijfsnaam (optioneel)" class="w-full px-3.5 py-2.5 rounded-lg border border-office-300 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none text-sm">
-          </div>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-          <div>
-            <label class="block text-sm font-semibold text-office-700 mb-1.5">E-mailadres *</label>
-            <input type="email" name="email" required placeholder="naam@voorbeeld.nl" class="w-full px-3.5 py-2.5 rounded-lg border border-office-300 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none text-sm">
-          </div>
-          <div>
-            <label class="block text-sm font-semibold text-office-700 mb-1.5">Telefoonnummer</label>
-            <input type="tel" name="telefoon" placeholder="06-12345678" class="w-full px-3.5 py-2.5 rounded-lg border border-office-300 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none text-sm">
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Bedrijf</label>
+            <input type="text" name="bedrijf" placeholder="Optioneel" class="w-full px-3 py-2.5 rounded-lg border border-gray-200 focus:border-green-500 focus:ring-1 focus:ring-green-500 outline-none text-sm">
           </div>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
           <div>
-            <label class="block text-sm font-semibold text-office-700 mb-1.5">Aantal stoelen</label>
-            <select name="aantal" class="w-full px-3.5 py-2.5 rounded-lg border border-office-300 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none text-sm text-office-700">
+            <label class="block text-xs font-semibold text-gray-700 mb-1">E-mail *</label>
+            <input type="email" name="email" required placeholder="naam@voorbeeld.nl" class="w-full px-3 py-2.5 rounded-lg border border-gray-200 focus:border-green-500 focus:ring-1 focus:ring-green-500 outline-none text-sm">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Telefoon</label>
+            <input type="tel" name="telefoon" placeholder="06-12345678" class="w-full px-3 py-2.5 rounded-lg border border-gray-200 focus:border-green-500 focus:ring-1 focus:ring-green-500 outline-none text-sm">
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+          <div>
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Aantal stoelen</label>
+            <select name="aantal" class="w-full px-3 py-2.5 rounded-lg border border-gray-200 focus:border-green-500 focus:ring-1 focus:ring-green-500 outline-none text-sm">
               <option>1 stoel</option>
               <option>2-5 stoelen</option>
               <option>5-10 stoelen</option>
@@ -637,211 +531,163 @@
             </select>
           </div>
           <div>
-            <label class="block text-sm font-semibold text-office-700 mb-1.5">Budget indicatie</label>
-            <select name="budget" class="w-full px-3.5 py-2.5 rounded-lg border border-office-300 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none text-sm text-office-700">
-              <option>Tot €300 per stoel</option>
-              <option>€300 - €600 per stoel</option>
-              <option>€600 - €1.000 per stoel</option>
-              <option>€1.000+ per stoel</option>
-              <option>Nog geen idee</option>
+            <label class="block text-xs font-semibold text-gray-700 mb-1">Budget</label>
+            <select name="budget" class="w-full px-3 py-2.5 rounded-lg border border-gray-200 focus:border-green-500 focus:ring-1 focus:ring-green-500 outline-none text-sm">
+              <option>Tot €300</option>
+              <option>€300 - €600</option>
+              <option>€600 - €1.000</option>
+              <option>€1.000+</option>
+              <option>Weet ik nog niet</option>
             </select>
           </div>
         </div>
-        <div class="mb-5">
-          <label class="block text-sm font-semibold text-office-700 mb-1.5">Uw wensen of vragen</label>
-          <textarea name="bericht" rows="3" placeholder="Vertel ons wat u zoekt, bijv. type werk, rugklachten, specifieke wensen..." class="w-full px-3.5 py-2.5 rounded-lg border border-office-300 focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none text-sm resize-none"></textarea>
+        <div class="mb-4">
+          <label class="block text-xs font-semibold text-gray-700 mb-1">Uw wensen</label>
+          <textarea name="bericht" rows="3" placeholder="Waar kunnen we u mee helpen?" class="w-full px-3 py-2.5 rounded-lg border border-gray-200 focus:border-green-500 focus:ring-1 focus:ring-green-500 outline-none text-sm resize-none"></textarea>
         </div>
-        <button type="submit" class="w-full bg-primary-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-primary-700 transition-colors text-sm sm:text-base">
-          <i class="fa-solid fa-paper-plane mr-2"></i>Offerte aanvragen — antwoord binnen 24 uur
+        <button type="submit" class="w-full bg-green-600 text-white font-semibold py-3 rounded-lg hover:bg-green-700 transition-colors text-sm">
+          Offerte aanvragen
         </button>
-        <p class="text-xs text-office-400 text-center mt-3">Uw gegevens worden niet gedeeld met derden. Lees ons <a href="#" class="underline">privacybeleid</a>.</p>
+        <p class="text-[10px] text-gray-400 text-center mt-2">Wij delen uw gegevens niet met derden.</p>
       </form>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="py-12 sm:py-16 md:py-20 bg-white">
-    <div class="max-w-3xl mx-auto px-4">
-      <div class="text-center mb-10 fade-up">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-office-900 mb-3">Veelgestelde vragen</h2>
-      </div>
-
-      <div class="space-y-3 fade-up">
-        <details class="group bg-office-50 rounded-xl border border-office-200">
-          <summary class="flex items-center justify-between cursor-pointer p-4 sm:p-5 text-sm font-semibold text-office-900">
-            <span>Hoe kies ik de juiste bureaustoel?</span>
-            <i class="fa-solid fa-chevron-down text-office-400 text-xs group-open:rotate-180 transition-transform"></i>
+  <section id="faq" class="bg-white py-12 sm:py-16">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900 mb-8 text-center fade-up">Veelgestelde vragen</h2>
+      <div class="space-y-2 fade-up">
+        <details class="group border border-gray-100 rounded-lg">
+          <summary class="flex items-center justify-between cursor-pointer p-4 text-sm font-semibold text-gray-900">
+            Hoe kies ik de juiste bureaustoel?
+            <i class="fa-solid fa-chevron-down text-gray-300 text-[10px] group-open:rotate-180 transition-transform"></i>
           </summary>
-          <div class="px-4 sm:px-5 pb-4 sm:pb-5 text-sm text-office-500 leading-relaxed">
-            Dat hangt af van uw situatie: hoeveel uur per dag zit u, heeft u rugklachten, en wat is uw budget? Neem contact op met Luuk voor persoonlijk advies — hij helpt u graag de juiste keuze te maken.
-          </div>
+          <div class="px-4 pb-4 text-sm text-gray-500 leading-relaxed">Dat hangt af van uw situatie. Neem contact op met Luuk — hij helpt u graag met eerlijk advies over welke stoel bij u past.</div>
         </details>
-        <details class="group bg-office-50 rounded-xl border border-office-200">
-          <summary class="flex items-center justify-between cursor-pointer p-4 sm:p-5 text-sm font-semibold text-office-900">
-            <span>Wat kost de bezorging?</span>
-            <i class="fa-solid fa-chevron-down text-office-400 text-xs group-open:rotate-180 transition-transform"></i>
+        <details class="group border border-gray-100 rounded-lg">
+          <summary class="flex items-center justify-between cursor-pointer p-4 text-sm font-semibold text-gray-900">
+            Wat kost de bezorging?
+            <i class="fa-solid fa-chevron-down text-gray-300 text-[10px] group-open:rotate-180 transition-transform"></i>
           </summary>
-          <div class="px-4 sm:px-5 pb-4 sm:pb-5 text-sm text-office-500 leading-relaxed">
-            Bezorging en montage zijn gratis in heel Nederland. Wij leveren doorgaans binnen 3-5 werkdagen. Voor spoedleveringen kunt u contact opnemen.
-          </div>
+          <div class="px-4 pb-4 text-sm text-gray-500 leading-relaxed">Bezorging en montage zijn gratis in heel Nederland. Levering binnen 3-5 werkdagen.</div>
         </details>
-        <details class="group bg-office-50 rounded-xl border border-office-200">
-          <summary class="flex items-center justify-between cursor-pointer p-4 sm:p-5 text-sm font-semibold text-office-900">
-            <span>Kan ik de stoel eerst uitproberen?</span>
-            <i class="fa-solid fa-chevron-down text-office-400 text-xs group-open:rotate-180 transition-transform"></i>
+        <details class="group border border-gray-100 rounded-lg">
+          <summary class="flex items-center justify-between cursor-pointer p-4 text-sm font-semibold text-gray-900">
+            Kan ik de stoel eerst uitproberen?
+            <i class="fa-solid fa-chevron-down text-gray-300 text-[10px] group-open:rotate-180 transition-transform"></i>
           </summary>
-          <div class="px-4 sm:px-5 pb-4 sm:pb-5 text-sm text-office-500 leading-relaxed">
-            Ja, elke stoel heeft een proefperiode van 30 dagen. Niet tevreden? Dan halen wij de stoel kosteloos op. U kunt ook langskomen in onze showroom voor een proefzitting.
-          </div>
+          <div class="px-4 pb-4 text-sm text-gray-500 leading-relaxed">Ja, elke stoel heeft 30 dagen proefperiode. Niet tevreden? Dan halen wij de stoel kosteloos op.</div>
         </details>
-        <details class="group bg-office-50 rounded-xl border border-office-200">
-          <summary class="flex items-center justify-between cursor-pointer p-4 sm:p-5 text-sm font-semibold text-office-900">
-            <span>Bieden jullie zakelijke kortingen?</span>
-            <i class="fa-solid fa-chevron-down text-office-400 text-xs group-open:rotate-180 transition-transform"></i>
+        <details class="group border border-gray-100 rounded-lg">
+          <summary class="flex items-center justify-between cursor-pointer p-4 text-sm font-semibold text-gray-900">
+            Bieden jullie zakelijke kortingen?
+            <i class="fa-solid fa-chevron-down text-gray-300 text-[10px] group-open:rotate-180 transition-transform"></i>
           </summary>
-          <div class="px-4 sm:px-5 pb-4 sm:pb-5 text-sm text-office-500 leading-relaxed">
-            Ja, bij afname vanaf 5 stoelen bieden wij staffelkortingen. Vraag een offerte aan en wij maken een voorstel op maat voor uw organisatie. Ook lease-constructies zijn mogelijk.
-          </div>
-        </details>
-        <details class="group bg-office-50 rounded-xl border border-office-200">
-          <summary class="flex items-center justify-between cursor-pointer p-4 sm:p-5 text-sm font-semibold text-office-900">
-            <span>Zijn de stoelen NEN-gecertificeerd?</span>
-            <i class="fa-solid fa-chevron-down text-office-400 text-xs group-open:rotate-180 transition-transform"></i>
-          </summary>
-          <div class="px-4 sm:px-5 pb-4 sm:pb-5 text-sm text-office-500 leading-relaxed">
-            Alle bureaustoelen in ons assortiment voldoen aan NEN-EN 1335 en NPR 1813 normen. Dit is essentieel voor uw Arbo-verantwoording en het welzijn van uw medewerkers.
-          </div>
+          <div class="px-4 pb-4 text-sm text-gray-500 leading-relaxed">Ja, vanaf 5 stoelen bieden wij staffelkortingen. Vraag een offerte aan voor een voorstel op maat.</div>
         </details>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-office-800 text-office-400 pt-12 pb-6">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pb-10 border-b border-office-700">
+  <footer class="bg-gray-50 border-t border-gray-100 pt-10 pb-6">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pb-8">
         <div class="col-span-2 md:col-span-1">
-          <div class="flex items-center space-x-2 mb-3">
-            <div class="w-8 h-8 rounded-lg bg-primary-600 flex items-center justify-center">
-              <i class="fa-solid fa-chair text-white text-xs"></i>
-            </div>
-            <span class="text-sm font-bold text-white">Weststrate</span>
-          </div>
-          <p class="text-xs leading-relaxed mb-4">Specialist in ergonomische bureaustoelen. Al 25+ jaar uw partner voor kantoormeubelen.</p>
-          <div class="flex space-x-2">
-            <a href="#" class="w-8 h-8 rounded-lg bg-office-700 flex items-center justify-center hover:bg-primary-600 transition-colors text-xs"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" class="w-8 h-8 rounded-lg bg-office-700 flex items-center justify-center hover:bg-primary-600 transition-colors text-xs"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="w-8 h-8 rounded-lg bg-office-700 flex items-center justify-center hover:bg-primary-600 transition-colors text-xs"><i class="fa-brands fa-instagram"></i></a>
-          </div>
+          <p class="text-sm font-bold text-gray-900 mb-2">Weststrate</p>
+          <p class="text-xs text-gray-400 leading-relaxed">Specialist in bureaustoelen. Al 25+ jaar uw partner voor kantoormeubelen.</p>
         </div>
         <div>
-          <h4 class="text-white font-semibold text-xs uppercase tracking-wider mb-3">Aanbod</h4>
-          <ul class="space-y-2 text-xs">
-            <li><a href="#aanbod" class="hover:text-white transition-colors">Alle bureaustoelen</a></li>
-            <li><a href="#aanbod" class="hover:text-white transition-colors">Premium stoelen</a></li>
-            <li><a href="#aanbod" class="hover:text-white transition-colors">Budget stoelen</a></li>
-            <li><a href="#aanbod" class="hover:text-white transition-colors">Zit-sta oplossingen</a></li>
+          <h4 class="text-xs font-semibold text-gray-900 mb-2">Aanbod</h4>
+          <ul class="space-y-1.5 text-xs text-gray-400">
+            <li><a href="#aanbod" class="hover:text-gray-700 transition-colors">Bureaustoelen</a></li>
+            <li><a href="#aanbod" class="hover:text-gray-700 transition-colors">Zit-sta oplossingen</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="text-white font-semibold text-xs uppercase tracking-wider mb-3">Contact</h4>
-          <ul class="space-y-2 text-xs">
-            <li><a href="tel:+31118630000" class="hover:text-white transition-colors">0118-630 000</a></li>
-            <li><a href="mailto:luuk.louwerse@weststrate.nl" class="hover:text-white transition-colors">luuk.louwerse@weststrate.nl</a></li>
+          <h4 class="text-xs font-semibold text-gray-900 mb-2">Contact</h4>
+          <ul class="space-y-1.5 text-xs text-gray-400">
+            <li><a href="tel:+31118630000" class="hover:text-gray-700 transition-colors">0118-630 000</a></li>
+            <li><a href="mailto:luuk.louwerse@weststrate.nl" class="hover:text-gray-700 transition-colors">luuk.louwerse@weststrate.nl</a></li>
             <li>Ma-Vr: 08:00 - 17:30</li>
           </ul>
         </div>
         <div>
-          <h4 class="text-white font-semibold text-xs uppercase tracking-wider mb-3">Informatie</h4>
-          <ul class="space-y-2 text-xs">
-            <li><a href="#" class="hover:text-white transition-colors">Over ons</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">Privacybeleid</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">Algemene voorwaarden</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">Cookies</a></li>
+          <h4 class="text-xs font-semibold text-gray-900 mb-2">Info</h4>
+          <ul class="space-y-1.5 text-xs text-gray-400">
+            <li><a href="#" class="hover:text-gray-700 transition-colors">Privacy</a></li>
+            <li><a href="#" class="hover:text-gray-700 transition-colors">Voorwaarden</a></li>
           </ul>
         </div>
       </div>
-      <div class="pt-6 text-center text-xs text-office-600">
-        &copy; 2026 Weststrate Kantoormeubelen — Alle rechten voorbehouden — KvK 12345678
+      <div class="border-t border-gray-100 pt-4 text-center text-[10px] text-gray-300">
+        &copy; 2026 Weststrate Kantoormeubelen
       </div>
     </div>
   </footer>
 
-  <!-- Luuk Advies Widget — fixed rechtsonder -->
-  <div id="adviceWidget" class="fixed bottom-4 right-4 z-50">
-    <!-- Tooltip bubble -->
-    <div id="adviceBubble" class="tooltip-bubble absolute bottom-full right-0 mb-3 w-64 bg-white rounded-xl shadow-lg border border-office-200 p-4">
-      <button onclick="closeBubble()" class="absolute top-2 right-2 text-office-400 hover:text-office-700 text-sm">&times;</button>
+  <!-- Luuk widget rechtsonder -->
+  <div id="luukWidget" class="fixed bottom-4 right-4 z-50">
+    <div id="luukBubble" class="advice-bubble absolute bottom-full right-0 mb-3 w-60 bg-white rounded-xl shadow-lg border border-gray-200 p-4">
+      <button onclick="closeLuuk()" class="absolute top-2 right-3 text-gray-300 hover:text-gray-600 text-sm leading-none">&times;</button>
       <div class="flex items-start space-x-3">
-        <div class="w-10 h-10 rounded-full bg-office-100 overflow-hidden flex-shrink-0 flex items-center justify-center">
-          <img src="luuk.jpg" alt="Luuk" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fa-solid fa-user text-office-400\'></i>'">
+        <div class="w-9 h-9 rounded-full bg-gray-100 overflow-hidden flex-shrink-0 flex items-center justify-center">
+          <img src="luuk.jpg" alt="Luuk" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fa-solid fa-user text-gray-400 text-sm\'></i>'">
         </div>
         <div>
-          <p class="text-sm font-bold text-office-900">Advies nodig?</p>
-          <p class="text-xs text-office-500 mt-1 leading-relaxed">Vraag het aan Luuk! Hij helpt je graag met het kiezen van de juiste stoel.</p>
+          <p class="text-sm font-bold text-gray-900">Advies nodig?</p>
+          <p class="text-xs text-gray-500 mt-0.5 leading-relaxed">Vraag het aan Luuk, hij helpt je graag!</p>
         </div>
       </div>
-      <a href="mailto:luuk.louwerse@weststrate.nl?subject=Advies%20bureaustoelen&body=Hoi%20Luuk%2C%0A%0AIk%20heb%20een%20vraag%20over%20bureaustoelen.%0A%0A" class="mt-3 flex items-center justify-center space-x-2 bg-primary-600 text-white text-xs font-semibold py-2.5 px-4 rounded-lg hover:bg-primary-700 transition-colors w-full">
-        <i class="fa-solid fa-envelope"></i>
-        <span>Mail Luuk direct</span>
+      <a href="mailto:luuk.louwerse@weststrate.nl?subject=Advies%20bureaustoelen&body=Hoi%20Luuk%2C%0A%0A" class="mt-3 flex items-center justify-center space-x-1.5 bg-green-600 text-white text-xs font-semibold py-2 px-3 rounded-lg hover:bg-green-700 transition-colors w-full">
+        <i class="fa-solid fa-envelope text-[10px]"></i>
+        <span>Mail Luuk</span>
       </a>
-      <a href="tel:+31118630000" class="mt-2 flex items-center justify-center space-x-2 border border-office-300 text-office-700 text-xs font-semibold py-2.5 px-4 rounded-lg hover:bg-office-50 transition-colors w-full">
-        <i class="fa-solid fa-phone"></i>
-        <span>Of bel: 0118-630 000</span>
+      <a href="tel:+31118630000" class="mt-1.5 flex items-center justify-center space-x-1.5 border border-gray-200 text-gray-600 text-xs font-medium py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors w-full">
+        <i class="fa-solid fa-phone text-[10px]"></i>
+        <span>Bel 0118-630 000</span>
       </a>
     </div>
-
-    <!-- Widget button -->
-    <button onclick="toggleBubble()" class="advice-widget w-14 h-14 rounded-full bg-primary-600 shadow-lg hover:bg-primary-700 transition-colors flex items-center justify-center relative hover:shadow-xl">
-      <div class="w-10 h-10 rounded-full overflow-hidden bg-white flex items-center justify-center">
-        <img src="luuk.jpg" alt="Luuk Louwerse" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fa-solid fa-headset text-primary-600 text-lg\'></i>'">
+    <button onclick="toggleLuuk()" class="w-12 h-12 rounded-full bg-green-600 shadow-md hover:bg-green-700 transition-colors flex items-center justify-center relative">
+      <div class="w-9 h-9 rounded-full overflow-hidden bg-white flex items-center justify-center">
+        <img src="luuk.jpg" alt="Luuk" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fa-solid fa-headset text-green-600\'></i>'">
       </div>
-      <span class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></span>
+      <span class="absolute -top-0.5 -right-0.5 w-3 h-3 bg-green-400 rounded-full border-2 border-white"></span>
     </button>
   </div>
 
   <script>
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
+    // Fade up on scroll
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
-    // Luuk advice bubble
-    let bubbleOpen = false;
-    function toggleBubble() {
-      bubbleOpen = !bubbleOpen;
-      document.getElementById('adviceBubble').classList.toggle('show', bubbleOpen);
+    // Luuk bubble
+    let luukOpen = false;
+    function toggleLuuk() {
+      luukOpen = !luukOpen;
+      document.getElementById('luukBubble').classList.toggle('show', luukOpen);
     }
-    function closeBubble() {
-      bubbleOpen = false;
-      document.getElementById('adviceBubble').classList.remove('show');
+    function closeLuuk() {
+      luukOpen = false;
+      document.getElementById('luukBubble').classList.remove('show');
     }
-
-    // Auto-show bubble after 5 seconds on page
+    // Auto show after 4s
     setTimeout(() => {
-      if (!bubbleOpen) {
-        document.getElementById('adviceBubble').classList.add('show');
-        bubbleOpen = true;
-        // Auto-hide after 8 seconds
-        setTimeout(() => {
-          if (bubbleOpen) closeBubble();
-        }, 8000);
-      }
-    }, 5000);
+      if (!luukOpen) { document.getElementById('luukBubble').classList.add('show'); luukOpen = true; }
+      setTimeout(() => { if (luukOpen) closeLuuk(); }, 6000);
+    }, 4000);
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
         if (href === '#') return;
         e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // Close mobile nav
-        document.getElementById('mobileNav').classList.add('hidden');
+        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('mobNav')?.classList.add('hidden');
       });
     });
   </script>
