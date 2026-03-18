@@ -65,10 +65,79 @@
     /* Scroll offset for sticky navbar */
     [id] { scroll-margin-top: 5rem; }
 
-    /* CTA button hover enhancement */
-    .cta-btn { transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; }
-    .cta-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(232, 129, 26, 0.35); }
+    /* Scroll progress bar */
+    #scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #E8811A, #6B2FA0); z-index: 9999; width: 0%; transition: width 0.05s linear; }
+
+    /* Animated gradient hero */
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      25% { background-position: 100% 50%; }
+      50% { background-position: 100% 100%; }
+      75% { background-position: 0% 100%; }
+      100% { background-position: 0% 50%; }
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #f8f6fc 0%, #f0f4ff 25%, #f5f0fa 50%, #eef9f7 75%, #f8f6fc 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+
+    /* CTA button hover enhancement with glow + ripple */
+    .cta-btn {
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+      position: relative; overflow: hidden;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 4px 20px rgba(232, 129, 26, 0.4), 0 0 30px rgba(232, 129, 26, 0.15);
+    }
+    .cta-btn:active { transform: translateY(0) scale(0.98); }
     .cta-btn:focus-visible { outline: 2px solid #E8811A; outline-offset: 2px; }
+
+    /* Ripple effect */
+    .cta-btn .ripple {
+      position: absolute; border-radius: 50%; background: rgba(255,255,255,0.4);
+      transform: scale(0); animation: rippleAnim 0.6s ease-out; pointer-events: none;
+    }
+    @keyframes rippleAnim { to { transform: scale(4); opacity: 0; } }
+
+    /* Arrow slide on main CTA buttons */
+    .cta-arrow::after {
+      content: '\2192'; display: inline-block; margin-left: 0; max-width: 0; opacity: 0; overflow: hidden;
+      transition: max-width 0.3s ease, margin-left 0.3s ease, opacity 0.3s ease;
+    }
+    .cta-arrow:hover::after { max-width: 1.5em; margin-left: 0.4em; opacity: 1; }
+
+    /* Glassmorphism cards */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      transition: all 0.3s ease;
+    }
+    .glass-card:hover {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(107, 47, 160, 0.08);
+    }
+    .glass-bg {
+      background: linear-gradient(135deg, #f5f0fa 0%, #eef4ff 30%, #eef9f7 60%, #fdf4eb 100%);
+    }
+
+    /* Counter animation enhancements */
+    .counter-pop { transition: transform 0.3s ease, filter 0.3s ease; }
+    .counter-counting { filter: blur(1px); }
+    @keyframes counterPop { 0% { transform: scale(1); } 50% { transform: scale(1.08); } 100% { transform: scale(1); } }
+
+    /* Wizard styles */
+    .wizard-option {
+      transition: all 0.2s ease; cursor: pointer;
+    }
+    .wizard-option:hover { border-color: #E8811A; background: #FFF8F3; transform: translateY(-1px); }
+    .wizard-option.selected { border-color: #E8811A; background: #FFF8F3; box-shadow: 0 0 0 3px rgba(232,129,26,0.15); }
+    .wizard-step { transition: opacity 0.4s ease, transform 0.4s ease; }
+    .wizard-step.hidden-step { opacity: 0; transform: translateX(20px); position: absolute; pointer-events: none; }
 
     /* Smooth mobile menu */
     #mobNav { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease; opacity: 0; padding-top: 0; padding-bottom: 0; }
@@ -107,6 +176,7 @@
   </script>
 </head>
 <body class="bg-white text-gray-800 antialiased">
+  <div id="scroll-progress"></div>
 
   <!-- Top bar -->
   <div class="bg-gray-50 border-b border-gray-100 text-gray-500 text-xs">
@@ -148,7 +218,7 @@
   </header>
 
   <!-- Hero -->
-  <section class="bg-gradient-to-br from-gray-50 to-white py-12 sm:py-16 md:py-20">
+  <section class="hero-gradient py-12 sm:py-16 md:py-20" id="hero-section">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
         <!-- Tekst links -->
@@ -165,7 +235,7 @@
             Weststrate is al sinds 1934 dé specialist in bureaustoelen. Onafhankelijk, eerlijk advies en altijd de scherpste prijs — gratis bezorgd en gemonteerd op jouw kantoor.
           </p>
           <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-            <a href="javascript:void(0)" onclick="openOfferte()" class="cta-btn bg-[#E8811A] text-white font-semibold text-center py-3.5 px-6 rounded-full hover:bg-[#D07316] text-sm">
+            <a href="javascript:void(0)" onclick="openOfferte()" class="cta-btn cta-arrow bg-[#E8811A] text-white font-semibold text-center py-3.5 px-6 rounded-full hover:bg-[#D07316] text-sm">
               Vraag een offerte aan
             </a>
             <a href="tel:+31118630000" class="bg-white border border-gray-200 text-gray-700 font-medium text-center py-3.5 px-6 rounded-full hover:bg-gray-50 transition-colors text-sm shadow-sm">
@@ -179,7 +249,7 @@
         </div>
         <!-- Bureaustoel afbeelding rechts -->
         <div class="flex-shrink-0 relative">
-          <div class="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white flex items-center justify-center p-6">
+          <div id="hero-parallax" class="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white flex items-center justify-center p-6" style="will-change: transform;">
             <img src="bureuastoel_donker-removebg-preview.png" alt="Ergonomische bureaustoel Giroflex 313" class="max-h-full max-w-full object-contain drop-shadow-lg hero-img">
           </div>
           <div class="absolute -bottom-3 -left-3 bg-white rounded-xl px-4 py-2.5 shadow-lg border border-gray-100">
@@ -219,7 +289,7 @@
         <p class="text-sm text-gray-500 mt-2 max-w-md">Ergonomisch zitten begint hier. Elke stoel NEN-gecertificeerd, gratis bezorgd en op maat ingesteld. Vraag een offerte aan voor de beste prijs.</p>
       </div>
 
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5">
 
         <!-- 1. HAG Capisco 8106 — Populair (normale kaart) -->
         <div class="product-card group bg-white rounded-2xl border border-gray-100 overflow-hidden fade-up">
@@ -245,26 +315,21 @@
           </div>
         </div>
 
-        <!-- 2. Giroflex 313 — MEEST GEKOZEN (highlight + dubbel breed) -->
-        <div class="product-card group bg-white rounded-2xl border-2 border-[#E8811A] overflow-hidden fade-up relative ring-4 ring-[#E8811A]/10 col-span-2">
-          <div class="absolute -top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#E8811A] text-white text-[9px] font-bold px-3 py-1 rounded-full z-10 whitespace-nowrap shadow-sm">Meest gekozen</div>
-          <div class="flex flex-col sm:flex-row">
-            <div class="relative aspect-square sm:aspect-auto sm:w-1/2 flex items-center justify-center p-6 sm:p-8">
-              <img src="bureuastoel_donker-removebg-preview.png" alt="Giroflex 313" loading="lazy" class="max-h-full max-w-full object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0" onerror="this.onerror=null; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<i class=\'fa-solid fa-chair text-4xl text-gray-200\'></i>')">
-              <img src="bureaustoel_donker_hover-removebg-preview.png" alt="Giroflex 313 achterkant" loading="lazy" class="absolute inset-0 m-auto max-h-[calc(100%-3rem)] max-w-[calc(100%-3rem)] object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <span class="absolute top-3 left-3 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full" style="background:#6B2FA0">Bestseller</span>
-            </div>
-            <div class="p-4 sm:p-5 sm:w-1/2 flex flex-col justify-center">
-              <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">Giroflex</p>
-              <h3 class="text-base sm:text-lg font-bold text-gray-900 mt-0.5 leading-tight">Giroflex 313</h3>
-              <p class="text-xs text-gray-500 mt-2 leading-relaxed hidden sm:block">De ideale allrounder voor elk kantoor. Ergonomisch, duurzaam en geschikt voor langdurig comfort.</p>
-              <div class="flex items-center mt-2">
-                <i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-regular fa-star text-yellow-400 text-[9px]"></i><span class="text-[9px] text-gray-400 ml-1">(142)</span>
-              </div>
-              <div class="flex items-center justify-between mt-3">
-                <span class="text-lg sm:text-xl font-extrabold text-gray-900">€649</span>
-                <a href="javascript:void(0)" onclick="openOfferte('Giroflex 313')" class="bg-[#E8811A] text-white text-[11px] font-semibold py-1.5 px-3.5 rounded-full hover:bg-[#D07316] transition-colors">Offerte</a>
-              </div>
+        <!-- 2. Giroflex 313 — MEEST GEKOZEN (highlight, zelfde formaat) -->
+        <div class="product-card group bg-white rounded-2xl border-2 border-[#E8811A] fade-up relative ring-4 ring-[#E8811A]/10 mt-3">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#E8811A] text-white text-[9px] font-bold px-3 py-1 rounded-full z-10 whitespace-nowrap shadow-sm">Meest gekozen</div>
+          <div class="relative aspect-square flex items-center justify-center p-6 overflow-hidden rounded-t-2xl">
+            <img src="bureuastoel_donker-removebg-preview.png" alt="Giroflex 313" loading="lazy" class="max-h-full max-w-full object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0" onerror="this.onerror=null; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<i class=\'fa-solid fa-chair text-4xl text-gray-200\'></i>')">
+            <img src="bureaustoel_donker_hover-removebg-preview.png" alt="Giroflex 313 achterkant" loading="lazy" class="absolute inset-0 m-auto max-h-[calc(100%-3rem)] max-w-[calc(100%-3rem)] object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <span class="absolute top-3 left-3 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full" style="background:#6B2FA0">Bestseller</span>
+          </div>
+          <div class="p-3.5 sm:p-4">
+            <p class="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">Giroflex</p>
+            <h3 class="text-sm font-bold text-gray-900 mt-0.5 leading-tight">Giroflex 313</h3>
+            <div class="flex items-center mt-1.5"><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-solid fa-star text-yellow-400 text-[9px]"></i><i class="fa-regular fa-star text-yellow-400 text-[9px]"></i><span class="text-[9px] text-gray-400 ml-1">(142)</span></div>
+            <div class="flex items-center justify-between mt-3">
+              <span class="text-base font-extrabold text-gray-900">€649</span>
+              <a href="javascript:void(0)" onclick="openOfferte('Giroflex 313')" class="bg-[#E8811A] text-white text-[11px] font-semibold py-1.5 px-3.5 rounded-full hover:bg-[#D07316] transition-colors">Offerte</a>
             </div>
           </div>
         </div>
@@ -338,37 +403,154 @@
     </div>
   </section>
 
+  <!-- Stoelkeuze Wizard -->
+  <section class="bg-white py-14 sm:py-20" id="wizard">
+    <div class="max-w-2xl mx-auto px-4">
+      <div class="text-center mb-8 fade-up">
+        <span class="text-[10px] text-brand-600 uppercase tracking-widest font-bold">Stoelkeuze-wizard</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-1 tracking-tight">Welke bureaustoel past bij jou?</h2>
+        <p class="text-sm text-gray-500 mt-2">Beantwoord 3 korte vragen en ontvang een persoonlijke aanbeveling.</p>
+      </div>
+
+      <div class="bg-gray-50 rounded-2xl p-6 sm:p-8 fade-up" id="wizard-container">
+        <!-- Progress dots -->
+        <div class="flex items-center justify-center gap-2 mb-6">
+          <div class="wizard-dot w-2.5 h-2.5 rounded-full bg-[#E8811A] transition-colors duration-300"></div>
+          <div class="wizard-dot w-2.5 h-2.5 rounded-full bg-gray-200 transition-colors duration-300"></div>
+          <div class="wizard-dot w-2.5 h-2.5 rounded-full bg-gray-200 transition-colors duration-300"></div>
+        </div>
+
+        <div class="relative min-h-[280px]">
+          <!-- Step 1 -->
+          <div class="wizard-step" id="wizard-step-1">
+            <h3 class="text-sm font-bold text-gray-900 text-center mb-4">Hoeveel uur per dag zit je achter je bureau?</h3>
+            <div class="grid grid-cols-2 gap-3">
+              <button onclick="wizardSelect(1, 'light')" class="wizard-option rounded-xl border-2 border-gray-200 p-4 text-center">
+                <i class="fa-solid fa-clock text-lg text-gray-300 mb-2"></i>
+                <p class="text-sm font-semibold text-gray-900">Minder dan 4 uur</p>
+                <p class="text-[10px] text-gray-400 mt-0.5">Parttime / flexwerk</p>
+              </button>
+              <button onclick="wizardSelect(1, 'medium')" class="wizard-option rounded-xl border-2 border-gray-200 p-4 text-center">
+                <i class="fa-solid fa-clock text-lg text-[#009B8D] mb-2"></i>
+                <p class="text-sm font-semibold text-gray-900">4–6 uur</p>
+                <p class="text-[10px] text-gray-400 mt-0.5">Halve dag kantoor</p>
+              </button>
+              <button onclick="wizardSelect(1, 'heavy')" class="wizard-option rounded-xl border-2 border-gray-200 p-4 text-center">
+                <i class="fa-solid fa-clock text-lg text-[#2D3294] mb-2"></i>
+                <p class="text-sm font-semibold text-gray-900">6–8 uur</p>
+                <p class="text-[10px] text-gray-400 mt-0.5">Fulltime kantoorwerk</p>
+              </button>
+              <button onclick="wizardSelect(1, 'intensive')" class="wizard-option rounded-xl border-2 border-gray-200 p-4 text-center">
+                <i class="fa-solid fa-clock text-lg text-[#6B2FA0] mb-2"></i>
+                <p class="text-sm font-semibold text-gray-900">8+ uur</p>
+                <p class="text-[10px] text-gray-400 mt-0.5">Intensief bureauwerk</p>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="wizard-step hidden-step" id="wizard-step-2">
+            <h3 class="text-sm font-bold text-gray-900 text-center mb-4">Wat is je budget per stoel?</h3>
+            <div class="grid grid-cols-2 gap-3">
+              <button onclick="wizardSelect(2, 'low')" class="wizard-option rounded-xl border-2 border-gray-200 p-4 text-center">
+                <i class="fa-solid fa-coins text-lg text-gray-300 mb-2"></i>
+                <p class="text-sm font-semibold text-gray-900">Tot €300</p>
+                <p class="text-[10px] text-gray-400 mt-0.5">Basiscomfort</p>
+              </button>
+              <button onclick="wizardSelect(2, 'mid')" class="wizard-option rounded-xl border-2 border-gray-200 p-4 text-center">
+                <i class="fa-solid fa-coins text-lg text-[#009B8D] mb-2"></i>
+                <p class="text-sm font-semibold text-gray-900">€300–€600</p>
+                <p class="text-[10px] text-gray-400 mt-0.5">Beste prijs-kwaliteit</p>
+              </button>
+              <button onclick="wizardSelect(2, 'high')" class="wizard-option rounded-xl border-2 border-gray-200 p-4 text-center">
+                <i class="fa-solid fa-coins text-lg text-[#2D3294] mb-2"></i>
+                <p class="text-sm font-semibold text-gray-900">€600–€1.000</p>
+                <p class="text-[10px] text-gray-400 mt-0.5">Premium ergonomie</p>
+              </button>
+              <button onclick="wizardSelect(2, 'unlimited')" class="wizard-option rounded-xl border-2 border-gray-200 p-4 text-center">
+                <i class="fa-solid fa-coins text-lg text-[#6B2FA0] mb-2"></i>
+                <p class="text-sm font-semibold text-gray-900">Geen limiet</p>
+                <p class="text-[10px] text-gray-400 mt-0.5">Het beste van het beste</p>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="wizard-step hidden-step" id="wizard-step-3">
+            <h3 class="text-sm font-bold text-gray-900 text-center mb-4">Wat is voor jou het belangrijkst?</h3>
+            <div class="grid grid-cols-2 gap-3">
+              <button onclick="wizardSelect(3, 'comfort')" class="wizard-option rounded-xl border-2 border-gray-200 p-4 text-center">
+                <i class="fa-solid fa-heart text-lg text-[#E8811A] mb-2"></i>
+                <p class="text-sm font-semibold text-gray-900">Comfort</p>
+                <p class="text-[10px] text-gray-400 mt-0.5">Maximale ondersteuning</p>
+              </button>
+              <button onclick="wizardSelect(3, 'design')" class="wizard-option rounded-xl border-2 border-gray-200 p-4 text-center">
+                <i class="fa-solid fa-palette text-lg text-[#6B2FA0] mb-2"></i>
+                <p class="text-sm font-semibold text-gray-900">Design</p>
+                <p class="text-[10px] text-gray-400 mt-0.5">Stijlvol & modern</p>
+              </button>
+              <button onclick="wizardSelect(3, 'adjustable')" class="wizard-option rounded-xl border-2 border-gray-200 p-4 text-center">
+                <i class="fa-solid fa-sliders text-lg text-[#2D3294] mb-2"></i>
+                <p class="text-sm font-semibold text-gray-900">Verstelbaar</p>
+                <p class="text-[10px] text-gray-400 mt-0.5">Volledig instelbaar</p>
+              </button>
+              <button onclick="wizardSelect(3, 'value')" class="wizard-option rounded-xl border-2 border-gray-200 p-4 text-center">
+                <i class="fa-solid fa-scale-balanced text-lg text-[#009B8D] mb-2"></i>
+                <p class="text-sm font-semibold text-gray-900">Prijs-kwaliteit</p>
+                <p class="text-[10px] text-gray-400 mt-0.5">Beste deal</p>
+              </button>
+            </div>
+          </div>
+
+          <!-- Result -->
+          <div class="wizard-step hidden-step" id="wizard-result">
+            <div class="text-center mb-4">
+              <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-3">
+                <i class="fa-solid fa-check text-green-600 text-lg"></i>
+              </div>
+              <h3 class="text-base font-bold text-gray-900">Onze aanbeveling voor jou</h3>
+            </div>
+            <div id="wizard-recommendations" class="space-y-3"></div>
+            <div class="text-center mt-5">
+              <button onclick="resetWizard()" class="text-xs text-gray-400 hover:text-gray-600 transition-colors underline">Opnieuw starten</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Waarom wij -->
-  <section class="bg-white py-14 sm:py-20">
+  <section class="glass-bg py-14 sm:py-20">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-10 fade-up">
         <span class="text-[10px] text-brand-600 uppercase tracking-widest font-bold">Waarom Weststrate</span>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-1 tracking-tight">Specialist in bureaustoelen sinds 1934</h2>
       </div>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-        <div class="bg-gray-50 rounded-2xl p-5 sm:p-6 text-center fade-up">
-          <div class="w-11 h-11 rounded-full bg-white flex items-center justify-center mx-auto mb-3 shadow-sm">
+        <div class="glass-card rounded-2xl p-5 sm:p-6 text-center fade-up">
+          <div class="w-11 h-11 rounded-full bg-white/80 flex items-center justify-center mx-auto mb-3 shadow-sm">
             <i class="fa-solid fa-comments text-base" style="color:#6B2FA0"></i>
           </div>
           <h3 class="text-sm font-bold text-gray-900 mb-1">Persoonlijk advies</h3>
           <p class="text-xs text-gray-500 leading-relaxed">Jouw specialist denkt mee. Onafhankelijk en eerlijk — van intake tot oplevering.</p>
         </div>
-        <div class="bg-gray-50 rounded-2xl p-5 sm:p-6 text-center fade-up">
-          <div class="w-11 h-11 rounded-full bg-white flex items-center justify-center mx-auto mb-3 shadow-sm">
+        <div class="glass-card rounded-2xl p-5 sm:p-6 text-center fade-up">
+          <div class="w-11 h-11 rounded-full bg-white/80 flex items-center justify-center mx-auto mb-3 shadow-sm">
             <i class="fa-solid fa-truck text-base" style="color:#2D3294"></i>
           </div>
           <h3 class="text-sm font-bold text-gray-900 mb-1">Gratis bezorgd & gemonteerd</h3>
           <p class="text-xs text-gray-500 leading-relaxed">Wij zetten de stoel neer, stellen 'm in en nemen de verpakking mee.</p>
         </div>
-        <div class="bg-gray-50 rounded-2xl p-5 sm:p-6 text-center fade-up">
-          <div class="w-11 h-11 rounded-full bg-white flex items-center justify-center mx-auto mb-3 shadow-sm">
+        <div class="glass-card rounded-2xl p-5 sm:p-6 text-center fade-up">
+          <div class="w-11 h-11 rounded-full bg-white/80 flex items-center justify-center mx-auto mb-3 shadow-sm">
             <i class="fa-solid fa-rotate-left text-base" style="color:#009B8D"></i>
           </div>
           <h3 class="text-sm font-bold text-gray-900 mb-1">30 dagen proefperiode</h3>
           <p class="text-xs text-gray-500 leading-relaxed">Niet tevreden? Dan halen we de stoel kosteloos weer op.</p>
         </div>
-        <div class="bg-gray-50 rounded-2xl p-5 sm:p-6 text-center fade-up">
-          <div class="w-11 h-11 rounded-full bg-white flex items-center justify-center mx-auto mb-3 shadow-sm">
+        <div class="glass-card rounded-2xl p-5 sm:p-6 text-center fade-up">
+          <div class="w-11 h-11 rounded-full bg-white/80 flex items-center justify-center mx-auto mb-3 shadow-sm">
             <i class="fa-solid fa-shield-halved text-base" style="color:#E8871E"></i>
           </div>
           <h3 class="text-sm font-bold text-gray-900 mb-1">5 jaar garantie</h3>
@@ -728,10 +910,45 @@
   </div>
 
   <script>
+    // Fade-up observer
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+    // Scroll progress bar
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = (scrollTop / scrollHeight) * 100;
+      document.getElementById('scroll-progress').style.width = progress + '%';
+    }, { passive: true });
+
+    // Parallax effect on hero image (desktop only)
+    if (window.innerWidth > 768) {
+      window.addEventListener('scroll', () => {
+        const el = document.getElementById('hero-parallax');
+        if (el) {
+          const scroll = window.scrollY;
+          el.style.transform = 'translateY(' + (scroll * 0.15) + 'px)';
+        }
+      }, { passive: true });
+    }
+
+    // Ripple effect on CTA buttons
+    document.querySelectorAll('.cta-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+        ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+        this.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600);
+      });
+    });
 
     // Offerte modal
     function openOfferte(product) {
@@ -758,6 +975,7 @@
     }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOfferte(); });
 
+    // Luuk widget
     let luukOpen = false;
     function toggleLuuk() {
       luukOpen = !luukOpen;
@@ -772,7 +990,7 @@
       setTimeout(() => { if (luukOpen) closeLuuk(); }, 6000);
     }, 4000);
 
-    // Animated counters
+    // Improved animated counters with blur + pop
     const statsObs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (!e.isIntersecting) return;
@@ -780,17 +998,26 @@
           const target = parseFloat(el.dataset.count);
           const isDecimal = el.dataset.decimal === 'true';
           const useDot = el.dataset.format === 'dot';
-          const duration = 1500;
+          const duration = 2500;
           const start = performance.now();
+          el.classList.add('counter-counting');
           function update(now) {
             const progress = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
+            const eased = 1 - Math.pow(1 - progress, 4);
             let val = eased * target;
             if (isDecimal) val = val.toFixed(1);
             else val = Math.floor(val);
             if (useDot) val = Number(val).toLocaleString('nl-NL');
             el.textContent = val;
-            if (progress < 1) requestAnimationFrame(update);
+            // Gradually remove blur as we get closer
+            el.style.filter = 'blur(' + ((1 - progress) * 2) + 'px)';
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            } else {
+              el.classList.remove('counter-counting');
+              el.style.filter = '';
+              el.style.animation = 'counterPop 0.4s ease';
+            }
           }
           requestAnimationFrame(update);
         });
@@ -800,6 +1027,78 @@
     const statsEl = document.getElementById('luuk-stats');
     if (statsEl) statsObs.observe(statsEl);
 
+    // Stoelkeuze Wizard
+    const wizardAnswers = {};
+    const wizardChairs = [
+      { name: 'HAG Capisco 8106', brand: 'HAG', price: 999, img: 'bureaustoel_groen-removebg-preview.png', tags: ['intensive','heavy','high','unlimited','comfort','design','adjustable'] },
+      { name: 'Giroflex 313', brand: 'Giroflex', price: 649, img: 'bureuastoel_donker-removebg-preview.png', tags: ['heavy','medium','intensive','mid','high','comfort','adjustable','value'] },
+      { name: 'Interstuhl Every EV311', brand: 'Interstuhl', price: 569, img: 'Bureaustoel_325BL_blauw__zonder_hoofdsteun-removebg-preview.png', tags: ['heavy','medium','mid','high','design','adjustable','comfort'] },
+      { name: 'Prosedia Yourope 132', brand: 'Prosedia', price: 279, img: 'bureaustoel_zwart-removebg-preview.png', tags: ['light','medium','low','mid','value','design'] },
+      { name: 'Prosedia Bureaustoel 103', brand: 'Prosedia', price: 329, img: 'bureaustoel_goedkoop-removebg-preview.png', tags: ['light','medium','low','mid','value','comfort'] },
+    ];
+
+    function wizardSelect(step, value) {
+      wizardAnswers[step] = value;
+      // Highlight selected
+      document.querySelectorAll('#wizard-step-' + step + ' .wizard-option').forEach(b => b.classList.remove('selected'));
+      event.currentTarget.classList.add('selected');
+
+      setTimeout(() => {
+        if (step < 3) {
+          // Show next step
+          document.getElementById('wizard-step-' + step).classList.add('hidden-step');
+          document.getElementById('wizard-step-' + (step + 1)).classList.remove('hidden-step');
+          // Update dots
+          document.querySelectorAll('.wizard-dot').forEach((d, i) => {
+            d.style.background = i <= step ? '#E8811A' : '#e5e7eb';
+          });
+        } else {
+          // Show result
+          showWizardResult();
+        }
+      }, 300);
+    }
+
+    function showWizardResult() {
+      document.getElementById('wizard-step-3').classList.add('hidden-step');
+      document.getElementById('wizard-result').classList.remove('hidden-step');
+      document.querySelectorAll('.wizard-dot').forEach(d => d.style.background = '#E8811A');
+
+      // Score chairs based on answers
+      const allTags = Object.values(wizardAnswers);
+      const scored = wizardChairs.map(chair => {
+        const score = allTags.reduce((s, tag) => s + (chair.tags.includes(tag) ? 1 : 0), 0);
+        return { ...chair, score };
+      }).sort((a, b) => b.score - a.score);
+
+      const top = scored.slice(0, 2);
+      const container = document.getElementById('wizard-recommendations');
+      container.innerHTML = top.map((chair, i) => `
+        <div class="flex items-center gap-4 bg-white rounded-xl p-4 border border-gray-100 ${i === 0 ? 'ring-2 ring-[#E8811A]/20' : ''}">
+          <div class="w-16 h-16 flex-shrink-0 flex items-center justify-center">
+            <img src="${chair.img}" alt="${chair.name}" class="max-h-full max-w-full object-contain">
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-[10px] font-semibold text-gray-400 uppercase">${chair.brand}</p>
+            <p class="text-sm font-bold text-gray-900">${chair.name}</p>
+            <p class="text-base font-extrabold text-gray-900 mt-0.5">&euro;${chair.price}</p>
+          </div>
+          <a href="javascript:void(0)" onclick="openOfferte('${chair.name}')" class="cta-btn bg-[#E8811A] text-white text-[11px] font-semibold py-2 px-4 rounded-full hover:bg-[#D07316] transition-colors flex-shrink-0">Offerte</a>
+        </div>
+      `).join('');
+    }
+
+    function resetWizard() {
+      Object.keys(wizardAnswers).forEach(k => delete wizardAnswers[k]);
+      document.getElementById('wizard-result').classList.add('hidden-step');
+      document.getElementById('wizard-step-1').classList.remove('hidden-step');
+      document.querySelectorAll('.wizard-dot').forEach((d, i) => {
+        d.style.background = i === 0 ? '#E8811A' : '#e5e7eb';
+      });
+      document.querySelectorAll('.wizard-option').forEach(b => b.classList.remove('selected'));
+    }
+
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
